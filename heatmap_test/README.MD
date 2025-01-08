@@ -1,4 +1,4 @@
-- Set up a React app 
-- Install required libraries
-- Fetch COVID-19 data
-- Render a heatmap using react-leaflet and leaflet-heatmap-layer
+- Set up a React app (Done)
+- Install required libraries (Done)
+- Fetch COVID-19 data (Testing API)
+- Render a heatmap using react-leaflet and leaflet-heatmap-layer (Not done)
