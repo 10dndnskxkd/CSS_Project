@@ -1,6 +1,5 @@
 ## Table of Contents
 
-Theme: Covid /n
 Theme: Covid
  - Theresa: Live data displayed with charts and graphs on Covid infections
  - Damian: Interactive heatmap of Covid infections
