@@ -1,1 +1,4 @@
-Test 
+- Set up a React app 
+- Install required libraries
+- Fetch COVID-19 data
+- Render a heatmap using react-leaflet and leaflet-heatmap-layer
