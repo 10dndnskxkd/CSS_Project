@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Navbar from '../ui/Navbar';
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Circle, Tooltip } from 'react-leaflet';
@@ -57,6 +58,7 @@ export default function TemperatureMapPage() {
 
   return (
     <div>
+      <Navbar />
       <h1>Temperature Map</h1>
       {errorMessage ? (
         <p>{errorMessage}</p>

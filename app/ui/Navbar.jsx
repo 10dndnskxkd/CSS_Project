@@ -5,11 +5,9 @@ export default function Navbar() {
     return (
         <nav className={styles.navbar}>
             <Link className={styles.navitem} href="/">Home</Link>
-            <Link className={styles.navitem} href="/TEMPMAP">Temp Map</Link>
-            <Link className={styles.navitem} href="/DASHBOARD">Dashboard</Link>
-            <Link className={styles.navitem} href="/WHOWEARE">Who We Are</Link>
-            <Link className={styles.navitem} href="/OURSERVICES">Our Services</Link>
-            <Link className={styles.navitem} href="/ESERVICES">E-Services</Link>
+            <Link className={styles.navitem} href="/tempmap">Temp Map</Link>
+            <Link className={styles.navitem} href="/test">Test</Link>
+            <Link className={styles.navitem} href="/references">References</Link>
         </nav>
     );
 }
