@@ -24,7 +24,7 @@ export default function Home() {
                 }}
             >
 
-                <div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', textAlign: 'center' }}>
                     <img
                         src="/neamascot.png"
                         alt="NEA mascot"
@@ -60,17 +60,17 @@ export default function Home() {
                         gap: '20px',
                     }}
                 >
-                    <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook size={40} color="#42627d" />
+                    <Link href="https://www.facebook.com/NEASingapore/" target="_blank" rel="noopener noreferrer">
+                        <FaFacebook size={40} color="#000000" />
                     </Link>
-                    <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-                        <FaYoutube size={40} color="#42627d" />
+                    <Link href="https://www.youtube.com/channel/UC-tjEFkd0tT2VpD5vbjyAKA" target="_blank" rel="noopener noreferrer">
+                        <FaYoutube size={40} color="#000000" />
                     </Link>
-                    <Link href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                        <FaTwitter size={40} color="#42627d" />
+                    <Link href="https://www.x.com/NEAsg" target="_blank" rel="noopener noreferrer">
+                        <FaTwitter size={40} color="#000000" />
                     </Link>
-                    <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                        <FaInstagram size={40} color="#42627d" />
+                    <Link href="https://www.instagram.com/nea_sg/" target="_blank" rel="noopener noreferrer">
+                        <FaInstagram size={40} color="#000000" />
                     </Link>
                 </div>
             </div>
