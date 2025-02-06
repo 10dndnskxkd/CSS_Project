@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 1000, padding: '0', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '10px 20px' }}>
-            <img src="/nea.png" alt="NEA logo" style={{ width: '150px', height: 'auto' }} />
+            <img src="/friends.png" alt="NEA logo" style={{ width: '150px', height: 'auto' }} />
             <Navbar />
           </div>
         </div>
