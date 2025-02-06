@@ -1,57 +1,45 @@
-"use client";  // ✅ Add this at the top to make it a Client Component
+"use client";  // ✅ Make it a Client Component
 
 import React from "react";
 import Link from "next/link";
-// import dynamic from "next/dynamic"; // ✅ Dynamic import for Lottie
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import WeatherBackground from "./Components/page"; // ✅ Ensure correct import path
 import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
-import Navbar from "./ui/Navbar";
-
-// // ✅ Dynamically import Lottie without SSR
-// const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-// import animationData from "../public/Animation_raining.json"; // Ensure correct path
 
 export default function Home() {
   return (
     <WeatherBackground>
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 50 }} // Start hidden and move up
+        animate={{ opacity: 1, y: 0 }} // Fade in and rise up
+        transition={{ duration: 1.5, ease: "easeOut" }} // Smooth transition
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
-          height: "100vh", // Ensure 100% viewport height
+          height: "100vh",
           width: "100vw",
-          overflow: "hidden", // Prevent scrolling
+          overflow: "hidden",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          position: "relative", // Ensure relative positioning for child elements
+          position: "relative", 
         }}
       >
-        {/* ✅ Lottie Animation Positioned at the Top Left
-        <div
-          style={{
-            position: "absolute",
-            top: "10px",
-            left: "10px",
-            width: "100px",
-            height: "100px",
-          }}
-        >
-          <Lottie animationData={animationData} loop={true} autoplay={true} />
-        </div> */}
-
-        {/* ✅ Mascot Image */}
-        <img
+        {/* ✅ Mascot Animation */}
+        <motion.img
           src="/friends.png"
-          alt="NEA mascot"
+          alt="NEA Mascot"
           style={{ width: "650px", height: "auto", marginBottom: "20px" }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
         />
 
-        {/* ✅ Updated Heading & Paragraph */}
-        <h1
+        {/* ✅ Heading Animation */}
+        <motion.h1
           style={{
             fontFamily: "'Playfair Display', serif",
             fontSize: "60px",
@@ -60,11 +48,15 @@ export default function Home() {
             textAlign: "center",
             marginBottom: "10px",
           }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
           Safeguard.Nurture.Cherish
-        </h1>
+        </motion.h1>
 
-        <p
+        {/* ✅ Paragraph Animation */}
+        <motion.p
           style={{
             fontFamily: "'Poppins', sans-serif",
             fontSize: "18px",
@@ -74,37 +66,40 @@ export default function Home() {
             maxWidth: "700px",
             margin: "0 auto",
           }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
           To ensure a clean and sustainable environment for Singapore, together
           with our partners and the community.
-        </p>
+        </motion.p>
 
-        {/* ✅ Social Media Links */}
-        <div
+        {/* ✅ Social Media Icons Animation */}
+        <motion.div
           style={{
             display: "flex",
             justifyContent: "center",
             gap: "20px",
-            marginTop: "20px", // Add spacing
+            marginTop: "20px",
           }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
         >
           <Link href="https://www.facebook.com/NEASingapore/" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={40} color="white" />
-            </Link>
-            <Link href="https://www.youtube.com/channel/UC-tjEFkd0tT2VpD5vbjyAKA" target="_blank" rel="noopener noreferrer">
+          </Link>
+          <Link href="https://www.youtube.com/channel/UC-tjEFkd0tT2VpD5vbjyAKA" target="_blank" rel="noopener noreferrer">
             <FaYoutube size={40} color="white" />
-            </Link>
-
-            <Link href="https://www.x.com/NEAsg" target="_blank" rel="noopener noreferrer">
+          </Link>
+          <Link href="https://www.x.com/NEAsg" target="_blank" rel="noopener noreferrer">
             <FaTwitter size={40} color="white" />
-            </Link>
-
+          </Link>
           <Link href="https://www.instagram.com/nea_sg/" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={40} color="white" />
-            </Link>
-
-        </div>
-      </div>
+          </Link>
+        </motion.div>
+      </motion.div>
     </WeatherBackground>
   );
 }
