@@ -25,6 +25,7 @@
   min-width: 100%; /* Ensure the navbar maintains its width */
 }
 
+/* Navigation Links */
 .navLinks {
   display: flex;
   align-items: center;
@@ -32,14 +33,30 @@
   padding-top: 10px;
 }
 
+/* Individual Nav Items */
 .navitem {
   color: black !important;
   font-weight: bold;
   text-decoration: none;
-  margin: 0 10px;
-  line-height: 1.8;
+  margin: 0 15px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  border-radius: 8px; /* Optional: Adds rounded corners */
 }
 
+/* Hover Effect */
+.navitem:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Darkens slightly */
+  color: black; /* Ensures text remains visible */
+}
+
+/* Active Page Indicator */
+.active {
+  background-color: rgba(0, 0, 0, 0.2); /* Slightly darker to show active state */
+  color: black;
+}
+
+/* Button */
 .navButton {
   color: black !important;
   font-weight: bold;
@@ -47,6 +64,7 @@
   margin: 0 10px;
 }
 
+/* Map Container */
 .mapContainer {
   z-index: 0; /* Ensure it stays below the navbar */
   position: absolute; /* Isolate it from other content */
@@ -55,4 +73,3 @@
   width: 100%; /* Full-width map */
   height: 100%; /* Full-height map */
 }
-
