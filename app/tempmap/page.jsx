@@ -53,17 +53,17 @@ export default function TemperatureMapPage() {
 
     // Refresh data every 5 minutes
     const interval = setInterval(fetchTemperatureData, 300000);
-    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <div>
       {errorMessage ? (
         <p>{errorMessage}</p>
       ) : (
-        <MapContainer center={[1.3521, 103.8198]} zoom={11} style={{ height: '100%', width: '100%' }}>
+        <MapContainer center={[1.3521, 103.8198]} zoom={12} style={{ height: '1150px', width: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           {temperatureData.map((station, index) => (
             <Circle
@@ -71,8 +71,12 @@ export default function TemperatureMapPage() {
               center={[station.latitude, station.longitude]}
               radius={1500}
               color="blue"
+              fillColor="blue"
+              fillOpacity={0.4}
             >
-              <Tooltip>{`${station.name}: ${station.value}°C`}</Tooltip>
+              <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
+                <span>{station.name}: {station.value}°C</span>
+              </Tooltip>
             </Circle>
           ))}
         </MapContainer>

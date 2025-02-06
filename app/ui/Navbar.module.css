@@ -1,12 +1,12 @@
 .navbar {
-  background: transparent !important; /* Transparent background */
+  background: white !important; 
   box-shadow: none !important;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   position: relative;
-  padding: 20px 20px; /* Adjust padding as needed */
+  padding: 0; /* Remove padding */
   text-align: center;
 }
 
@@ -16,12 +16,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  position: fixed;
-  top: 10px; /* Adjust top position */
+  max-width: 100%;
+  position: sticky; /* Change to sticky */
+  top: 0; /* Adjust top position */
   left: 0;
-  z-index: 1000;
-  padding: 20px 20px;
-  background: transparent !important; /* Ensure the background is transparent */
+  padding: 0; /* Remove padding */
+  background: white !important; 
+  min-width: 100%; /* Ensure the navbar maintains its width */
 }
 
 .navLinks {
@@ -45,3 +46,13 @@
   text-decoration: none;
   margin: 0 10px;
 }
+
+.mapContainer {
+  z-index: 0; /* Ensure it stays below the navbar */
+  position: absolute; /* Isolate it from other content */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full-width map */
+  height: 100%; /* Full-height map */
+}
+

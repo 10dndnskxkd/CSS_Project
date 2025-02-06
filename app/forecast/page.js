@@ -33,7 +33,7 @@ const ForecastPage = () => {
   }, []);
 
   return (
-    <div className="container full-screen">
+    <div className="full-screen">
       <h1 className="title">4-Day Weather Forecast</h1>
       {error ? (
         <p className="error">{error}</p>

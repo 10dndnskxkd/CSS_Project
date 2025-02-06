@@ -38,7 +38,9 @@ html, body {
 .forecastContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Even space between each card */
+  gap: 35px; /* Even space between each card */
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
