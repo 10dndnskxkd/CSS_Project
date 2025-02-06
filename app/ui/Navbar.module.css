@@ -1,13 +1,17 @@
+/* theresa */
+
 .navbar {
-  background: white !important; 
-  box-shadow: none !important;
+  background: transparent !important; /* ✅ Ensure full transparency */
+  box-shadow: none !important; /* ✅ Remove unwanted shadow */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   position: relative;
-  padding: 0; /* Remove padding */
+  padding: 0; 
   text-align: center;
+  
+  
 }
 
 .navbarContainer {
@@ -21,7 +25,7 @@
   top: 0; /* Adjust top position */
   left: 0;
   padding: 0; /* Remove padding */
-  background: white !important; 
+  background: transparent !important; 
   min-width: 100%; /* Ensure the navbar maintains its width */
 }
 
@@ -29,8 +33,9 @@
 .navLinks {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 10px;
+  /* justify-content: center;
+  padding-top: 10px; */
+  margin-top: -5px;
 }
 
 /* Individual Nav Items */
