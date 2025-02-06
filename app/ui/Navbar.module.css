@@ -1,61 +1,47 @@
-.navbarContainer {
-  background: transparent !important; /* Remove black background */
-  padding: 10px 20px;
+.navbar {
+  background: transparent !important; /* Transparent background */
+  box-shadow: none !important;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  padding: 20px 20px; /* Adjust padding as needed */
+  text-align: center;
+}
+
+.navbarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   position: fixed;
-  top: 0;
+  top: 10px; /* Adjust top position */
   left: 0;
   z-index: 1000;
+  padding: 20px 20px;
+  background: transparent !important; /* Ensure the background is transparent */
 }
 
-
-
-/* Ensure the navigation bar has no background */
-.navbar {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-/* Ensure all div elements in navbar don't have a background */
-.navbarContainer div {
-  background: none !important;
-  box-shadow: none !important;
-}
-
-/* Logo Styling */
-.logoContainer {
+.navLinks {
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding-top: 10px;
 }
 
-/* Logo Size */
-.logoContainer img {
-  height: 50px;
-  width: auto;
-  margin-right: 20px;
-}
-
-/* Navigation Links */
 .navitem {
-  color: white !important;
+  color: black !important;
   font-weight: bold;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0 10px;
+  line-height: 1.8;
 }
 
-/* Button */
 .navButton {
-  background: transparent;
-  border: 2px solid white; /* Change border color if needed */
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-/* Ensure navbar does not overlap content */
-.bodyPadding {
-  padding-top: 80px;
+  color: black !important;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px;
 }

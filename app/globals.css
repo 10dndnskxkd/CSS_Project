@@ -8,7 +8,7 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: transparent;
   --foreground: #171717;
 }
 
@@ -40,7 +40,8 @@ p {
 html, body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
+  overflow : hidden;
   width: 100vw;
   background-size: cover;
   background-position: center;
@@ -108,4 +109,8 @@ html, body {
 /* Ensure navbar does not overlap content */
 .bodyPadding {
   padding-top: 80px;
+}
+
+#root, #__next {
+  height : 100%;
 }
