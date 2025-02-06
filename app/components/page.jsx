@@ -27,7 +27,7 @@ export default function WeatherBackground({ children }) {
                 case 'Partly Cloudy (Day)':
                 case 'Partly Cloudy (Night)':
                 case 'Cloudy':
-                    setBackgroundImage('/cloudy.jpg');
+                    setBackgroundImage('/cloudy.webp');
                     break;
                 // case 'Hazy':
                 // case 'Slightly Hazy':
@@ -40,34 +40,22 @@ export default function WeatherBackground({ children }) {
                 // case 'Fog':
                 //     setBackgroundImage('/foggy_weather.jpg');
                 //     break;
-                // case 'Light Rain':
-                //     setBackgroundImage('/light_rain.jpg');
-                //     break;
-                // case 'Moderate Rain':
-                //     setBackgroundImage('/moderate_rain.jpg');
-                //     break;
-                // case 'Heavy Rain':
-                //     setBackgroundImage('/heavy_rain.jpg');
-                //     break;
-                // case 'Passing Showers':
-                //     setBackgroundImage('/passing_showers.jpg');
-                //     break;
-                // case 'Light Showers':
-                //     setBackgroundImage('/light_showers.jpg');
-                //     break;
-                // case 'Showers':
-                //     setBackgroundImage('/showers.jpg');
-                //     break;
-                // case 'Heavy Showers':
-                //     setBackgroundImage('/heavy_showers.jpg');
-                //     break;
+                case 'Light Rain':
+                case 'Moderate Rain':
+                case 'Heavy Rain':
+                case 'Passing Showers':
+                case 'Light Showers':
+                case 'Showers':
+                case 'Heavy Showers':
+                    setBackgroundImage('/raining.avif');
+                    break;
                 case 'Thundery Showers':
                 case 'Heavy Thundery Showers':
                 case 'Heavy Thundery Showers with Gusty Winds':
-                    setBackgroundImage('/thunder_storm.jpeg');
+                    setBackgroundImage('/thunder_storm.webp');
                     break;
                 default:
-                    setBackgroundImage('/default.jpg');
+                    setBackgroundImage('/default.webp');
             }
         }
 
@@ -76,14 +64,21 @@ export default function WeatherBackground({ children }) {
 
     return (
         <div
+            className="background-container"
             style={{
                 height: '100vh',
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
+                transition: 'background-image 1s ease-in-out', // Smooth transition effect
             }}
         >
+            {/* Dark overlay for better text readability */}
+            <div className="background-overlay"></div>
+            
+            {/* Page content */}
+            <div className="content"></div>
             {children}
         </div>
     );

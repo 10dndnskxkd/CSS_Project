@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 :root {
   --background: #ffffff;
@@ -11,5 +16,96 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  font-weight: 700;
+  text-align: center;
+  color: #FFFFFF; /* Use White */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Black shadow */
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  color: #F8F8F8; /* Slightly softer white */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.navbarContainer {
+  background: transparent !important; /* Remove black background */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+
+
+/* Ensure the navigation bar has no background */
+.navbar {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Ensure all div elements in navbar don't have a background */
+.navbarContainer div {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Logo Styling */
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo Size */
+.logoContainer img {
+  height: 50px;
+  width: auto;
+  margin-right: 20px;
+}
+
+/* Navigation Links */
+.navitem {
+  color: white !important;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+/* Button */
+.navButton {
+  background: transparent;
+  border: 2px solid white; /* Change border color if needed */
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Ensure navbar does not overlap content */
+.bodyPadding {
+  padding-top: 80px;
 }

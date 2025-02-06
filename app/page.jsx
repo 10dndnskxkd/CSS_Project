@@ -1,39 +1,62 @@
 import React from 'react';
 import Link from 'next/link';
-import WeatherBackground from './Components/WeatherBackground.jsx';
-import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import icons
-import Navbar from './ui/Navbar';  
+import WeatherBackground from './Components/page.jsx';
+import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Navbar from './ui/Navbar';
 
 export default function Home() {
     return (
         <WeatherBackground>
             <div
                 style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                    height: '100vh',
-                    color: "black",
-                    textAlign: 'center',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    margin: 0,
-                    padding: 0,
+                    // display: 'flex',
+                    // justifyContent: 'center',
+                    // alignItems: 'center',
+                    // flexDirection: 'column',
+                    // height: '100vh',
+                    // textAlign: 'center',
+                    // margin: 0,
+                    // padding: 0,
+
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundAttachment: "fixed",
+                    minHeight: "100vh",
+                    width: "100vw"
                 }}
             >
-
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', textAlign: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
                     <img
                         src="/neamascot.png"
                         alt="NEA mascot"
-                        style={{ width: '650px', height: 'auto', marginRight: '20px' }}
+                        style={{ width: '650px', height: 'auto', marginBottom: '20px' }}
                     />
-                    <h2 style={{ fontSize: '36px' }}>Safeguard.Nurture.Cherish</h2>
-                    <p style={{ fontSize: '18px' }}>
-                        To ensure a clean and sustainable environment for Singapore, together with our partners and the community.
+                    
+                    {/* Updated Heading & Paragraph */}
+                    <h1 style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: '60px',
+                        fontWeight: '700',
+                        color: '#222',
+                        textAlign: 'center',
+                        marginBottom: '10px'
+                    }}>
+                        Safeguard.Nurture.Cherish
+                    </h1>
+                    
+                    <p style={{
+                        fontFamily: "'Poppins', sans-serif",
+                        fontSize: '18px',
+                        fontWeight: '300',
+                        color: '#444',
+                        textAlign: 'center',
+                        maxWidth: '700px',
+                        margin: '0 auto'
+                    }}>
+                        To ensure a clean and sustainable environment for Singapore, together with our partners and the community
                     </p>
+
                     <Link href="/DASHBOARD">
                         <button
                             style={{
@@ -52,6 +75,7 @@ export default function Home() {
                     </Link>
                 </div>
 
+                {/* Social Media Links */}
                 <div
                     style={{
                         marginTop: '20px',
