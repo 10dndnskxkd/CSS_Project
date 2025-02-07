@@ -18,18 +18,27 @@ const fetchWeatherData = async () => {
 };
 
 // Helper function to get the appropriate image URL based on forecast status
+const isNightTime = () => {
+  const currentHour = new Date().getHours();
+  return currentHour >= 18 || currentHour < 7; // From 6 PM to 7 AM is considered night
+};
+
+// Helper function to get the appropriate image URL based on forecast status and time of day
 const getWeatherImage = (forecast) => {
+  const nightTime = isNightTime(); // Determine if it's night time
+
+  // Select weather images based on forecast and time of day (day/night)
   switch (forecast) {
     case 'Partly Cloudy (Day)':
-      return '/images/forecast/cloudy.png'; // Example path, replace with actual image source
+      return nightTime ? '/images/forecast/night_cloudy.png' : '/images/forecast/cloudy.png'; 
     case 'Showers':
-      return '/images/forecast/shower.png'; // Example path, replace with actual image source
+      return nightTime ? '/images/forecast/night_shower.png' : '/images/forecast/shower.png'; 
     case 'Thunderstorm':
-      return '/images/forecast/thunderstorm.png'; // Example path, replace with actual image source
+      return nightTime ? '/images/forecast/thunderstorm.png' : '/images/forecast/thunderstorm.png'; 
     case 'Clear':
-      return '/images/forecast/sunny.png'; // Example path, replace with actual image source
+      return nightTime ? '/images/forecast/night.png' : '/images/forecast/sunny.png'; 
     default:
-      return '/images/forecast/sunny.png'; // Default image if forecast is not recognized
+      return nightTime ? '/images/forecast/night.png' : '/images/forecast/sunny.png'; 
   }
 };
 
