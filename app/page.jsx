@@ -2,21 +2,21 @@
 
 "use client"; 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./stylesHome/home.css";  // ✅ Import CSS file
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 import WeatherBackground from "./Components/page"; 
 
-// Real-Time Clock Component
+// ✅ Real-Time Clock Component
 function RealTimeClock() {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date().toLocaleString());
-    }, 1000); //updates every second
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -26,10 +26,74 @@ function RealTimeClock() {
       className="real-time-clock"
       initial={{ opacity: 0, y: -10 }} 
       animate={{ opacity: 1, y: 0 }}  
-      transition={{ duration: 2 }} 
+      transition={{ duration: 2, delay: 1 }} 
     >
       {currentTime}
     </motion.p>
+  );
+}
+
+// ✅ Improved Music Player Component
+function MusicPlayer() {
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const hasPlayed = localStorage.getItem("musicPlayed");
+
+    if (!hasPlayed) {
+      setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play().then(() => {
+            setIsPlaying(true);
+            localStorage.setItem("musicPlayed", "true");
+          }).catch(error => {
+            console.log("Autoplay blocked: User interaction required", error);
+          });
+        }
+      }, 1000); // Delayed autoplay by 1 second
+    }
+
+    // Pause music when switching tabs
+    const handleVisibilityChange = () => {
+      if (document.hidden && isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isPlaying]);
+
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(error => {
+          console.log("Autoplay blocked: User interaction required", error);
+        });
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    <div className="music-player">
+      <audio ref={audioRef} loop>
+        <source src="/save-my-world.mp3" type="audio/mpeg" />
+        Your browser does not support the audio tag.
+      </audio>
+
+      {/* Play/Stop Button */}
+      <button className="music-button" onClick={togglePlay}>
+        {isPlaying ? "Stop Music" : "Play Music"}
+      </button>
+    </div>
   );
 }
 
@@ -46,41 +110,41 @@ export default function Home() {
           src="/friends.png"
           alt="NEA Mascot"
           className="mascot"
-          initial={{ opacity: 5, scale: 2.8 }}
-          whileInView={{ opacity: 3, scale: 1 }}
-          transition={{ duration: 3 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, delay: 1 }}
         />
 
-        {/* Real-Time Clock */}
+        {/* ✅ Real-Time Clock */}
         <RealTimeClock />
 
-        {/* Heading Animation - Fade In */}
-        <motion.h1 
+        {/* ✅ Heading Animation - Fade In */}
+        <motion.h1
           className="main-heading"
-          initial={{ opacity: 0, y: -30 }}  // Start slightly above with opacity 0
-          animate={{ opacity: 1, y: 0 }}   // Animate into view
-          transition={{ duration: 1, ease: "easeOut" }} 
+          initial={{ opacity: 0, y: -30 }} 
+          animate={{ opacity: 1, y: 0 }}  
+          transition={{ duration: 1, ease: "easeOut", delay: 1 }}
         >
           Safeguard.Nurture.Cherish
         </motion.h1>
 
-        {/* Subtitle Animation - Fade In with Delay */}
-        <motion.p 
+        {/* ✅ Subtitle Animation - Fade In with Delay */}
+        <motion.p
           className="subtext"
-          initial={{ opacity: 0, y: 20 }}  // Start below
-          animate={{ opacity: 1, y: 0 }}  // Fade in
-          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }} // Delay animation
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }}  
+          transition={{ duration: 1, ease: "easeOut", delay: 1.5 }}
         >
           To ensure a clean and sustainable environment for Singapore, together
           with our partners and the community.
         </motion.p>
 
         {/* ✅ Social Media Icons Animation - Fade In */}
-        <motion.div 
+        <motion.div
           className="social-icons"
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }}  
-          transition={{ duration: 1, delay: 0.8 }} // Fade in later
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.8 }}
         >
           <Link href="https://www.facebook.com/NEASingapore/" target="_blank">
             <FaFacebook size={40} />
@@ -95,6 +159,9 @@ export default function Home() {
             <FaInstagram size={40} />
           </Link>
         </motion.div>
+
+        {/* ✅ Music Player */}
+        <MusicPlayer />
       </div>
     </WeatherBackground>
   );
