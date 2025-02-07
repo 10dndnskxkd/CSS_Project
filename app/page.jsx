@@ -8,22 +8,43 @@ import Link from "next/link";
 import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 import WeatherBackground from "./Components/page"; // ✅ Ensure correct import path
 
+// Real-Time Clock Component
+function RealTimeClock() {
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 1000); // Update time every second
+
+    return () => clearInterval(interval); // Cleanup interval
+  }, []);
+
+  return (
+    <motion.p
+      style={{
+        fontFamily: "'Poppins', sans-serif",
+        fontSize: "20px",
+        fontWeight: "500",
+        color: "lightgray",
+        textAlign: "center",
+        marginBottom: "10px",
+      }}
+      initial={{ opacity: 1, y: 30 }} // Ensure opacity stays at 1 initially
+      animate={{ opacity: 1, y: 0 }}  // Keep it visible
+      transition={{ duration: 1 }}
+    >
+      {currentTime}
+    </motion.p>
+  );
+}
+
 export default function Home() {
   const { scrollYProgress } = useScroll(); // ✅ Track Scroll Progress
 
   // ✅ Parallax Effect
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  // ✅ Real-time Clock
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleString());
-    }, 1000); // Update time every second
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <WeatherBackground>
@@ -62,22 +83,8 @@ export default function Home() {
           transition={{ duration: 1 }}
         />
 
-        {/* ✅ Real-Time Clock */}
-        <motion.p
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: "20px",
-            fontWeight: "500",
-            color: "lightgray",
-            textAlign: "center",
-            marginBottom: "10px",
-          }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          {currentTime}
-        </motion.p>
+        {/* ✅ Real-Time Clock - Isolated */}
+        <RealTimeClock />
 
         {/* ✅ Heading Animation */}
         <motion.h1
