@@ -5,6 +5,7 @@ import ForecastCard from './ForecastCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherBackground from '../Components/page';
+import WeatherMap from './WeatherMap'; // Import WeatherMap
 
 const ForecastPage = () => {
   const [forecasts, setForecasts] = useState([]);
@@ -36,17 +37,20 @@ const ForecastPage = () => {
   return (
     <WeatherBackground>
       <div className="full-screen">
-      <h1 className="title">4-Day Weather Forecast</h1>
-      {error ? (
-        <p className="error">{error}</p>
-      ) : (
-        <div className="forecastContainer">
-          {forecasts.map((day, index) => (
-            <ForecastCard key={index} day={day} />
-          ))}
-        </div>
-      )}
-    </div>
+        {/* Display Weather Map at the top */}
+        <WeatherMap />
+
+        <h1 className="title">4-Day Weather Forecast</h1>
+        {error ? (
+          <p className="error">{error}</p>
+        ) : (
+          <div className="forecastContainer">
+            {forecasts.map((day, index) => (
+              <ForecastCard key={index} day={day} />
+            ))}
+          </div>
+        )}
+      </div>
     </WeatherBackground>
   );
 };

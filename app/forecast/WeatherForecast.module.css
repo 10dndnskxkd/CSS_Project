@@ -1,0 +1,34 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.loading, .error {
+  font-size: 1.5rem;
+  color: red;
+}
+
+/* Map container */
+.mapContainer {
+  width: 100%;  /* Take full width of the parent container */
+  height: 500px;  /* Set fixed height for the map */
+  position: relative;  /* For responsiveness */
+  margin-top: 20px;
+}
+
+/* Optional: Add responsiveness */
+@media (max-width: 768px) {
+  .mapContainer {
+      height: 400px;  /* Adjust height for smaller screens */
+  }
+}
+
+  
+  
