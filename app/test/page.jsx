@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import "./styles.css";
+import WeatherBackground from '../Components/page';
 import KeyAreas from "./KeyAreas"; // Import the KeyAreas component
 
 export default function AboutPage() {
@@ -9,7 +10,8 @@ export default function AboutPage() {
   const fadeIn = useTransform(scrollYProgress, [0, 1], [1, 0]); // Fade-out effect
 
   return (
-    <motion.div
+    <WeatherBackground>
+      <motion.div
       className="page-container"
       style={{ minHeight: "200vh", overflowY: "auto" }} // Ensure scrolling
     >
@@ -69,6 +71,8 @@ export default function AboutPage() {
         </footer>
       </motion.div>
     </motion.div>
+    </WeatherBackground>
+    
   );
 }
 
