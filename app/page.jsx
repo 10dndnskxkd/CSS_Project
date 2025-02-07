@@ -1,45 +1,49 @@
 // Theresa
 
-"use client";  // ✅ Make it a Client Component
+"use client"; // ✅ Make it a Client Component
 
 import React, { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion"; // ✅ Import Framer Motion
 import Link from "next/link";
-import { motion } from "framer-motion"; // ✅ Import Framer Motion
-import WeatherBackground from "./Components/page"; // ✅ Ensure correct import path
 import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
+import WeatherBackground from "./Components/page"; // ✅ Ensure correct import path
 
 export default function Home() {
+  const { scrollYProgress } = useScroll(); // ✅ Track Scroll Progress
 
-//     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+  // ✅ Parallax Effect
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentTime(new Date().toLocaleString());
-//     }, 1000); // Update time every second
+  // ✅ Real-time Clock
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 1000); // Update time every second
 
-//     return () => clearInterval(interval); // Cleanup on unmount
-//   }, []);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    
     <WeatherBackground>
       <motion.div
-        initial={{ opacity: 0, y: 50 }} // Start hidden and move up
-        animate={{ opacity: 1, y: -20 }} // Fade in and rise up
-        transition={{ duration: 1.5, ease: "easeOut" }} // Smooth transition
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: -20 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         style={{
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
-          height: "100vh",
+          minHeight: "100vh", // ✅ Set to min-height so scrolling works
           width: "100vw",
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          position: "relative", 
+          position: "relative",
           marginTop: "-70px",
         }}
       >
@@ -47,11 +51,33 @@ export default function Home() {
         <motion.img
           src="/friends.png"
           alt="NEA Mascot"
-          style={{ width: "650px", height: "auto", marginBottom: "20px" }}
+          style={{
+            width: "650px",
+            height: "auto",
+            marginBottom: "20px",
+            scale: imageScale, // ✅ Parallax Effect
+          }}
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         />
+
+        {/* ✅ Real-Time Clock */}
+        <motion.p
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontSize: "20px",
+            fontWeight: "500",
+            color: "lightgray",
+            textAlign: "center",
+            marginBottom: "10px",
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          {currentTime}
+        </motion.p>
 
         {/* ✅ Heading Animation */}
         <motion.h1
@@ -62,6 +88,7 @@ export default function Home() {
             color: "white",
             textAlign: "center",
             marginBottom: "10px",
+            opacity: textOpacity, // ✅ Fades out on scroll
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,6 +107,7 @@ export default function Home() {
             textAlign: "center",
             maxWidth: "700px",
             margin: "0 auto",
+            opacity: textOpacity, // ✅ Fades out on scroll
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,6 +142,24 @@ export default function Home() {
             <FaInstagram size={40} color="white" />
           </Link>
         </motion.div>
+      </motion.div>
+
+      {/* ✅ Scrollable Section with Content */}
+      <motion.div
+        style={{
+          minHeight: "150vh", // ✅ Allow scrolling
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#121212",
+          color: "white",
+          padding: "50px",
+          textAlign: "center",
+        }}
+      >
+        <h2>Scroll Down to See Effects</h2>
+        <p>As you scroll, animations will take effect on various elements.</p>
       </motion.div>
     </WeatherBackground>
   );
