@@ -6,6 +6,9 @@ html, body {
   font-size: 16px; /* Base font size for scaling */
   overflow-x: hidden; /* Prevent horizontal scrolling */
   color: #333; /* Global text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .container {
@@ -14,19 +17,21 @@ html, body {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 100%;
   background-color: #f9f9f9;
   padding: 2rem; /* Increased padding to make the container bigger */
   overflow-y: auto; /* Enable scrolling if the content overflows */
+  flex-grow: 1; /* Allow container to grow to take full available height */
 }
 
 .full-screen {
   width: 100%;
-  height: 100%;
+  height: auto; /* Allow height to adjust based on content */
   padding: 0;
   margin: 0;
   border: none;
   border-radius: 0;
+  flex-grow: 1; /* Allows the container to grow */
+  overflow-y: auto; /* Enable scrolling within the full-screen section */
 }
 
 .title {
@@ -48,7 +53,6 @@ html, body {
      2px  2px 0 #000,
     -3px -3px 3px rgba(0, 0, 0, 0.8),
      3px  3px 3px rgba(0, 0, 0, 0.8);
-
 }
 
 .error {
@@ -64,32 +68,25 @@ html, body {
   align-items: center;
   flex-wrap: wrap; /* Allow wrapping to the next line if needed */
   width: 100%;
+  margin-top: 20px; /* Ensure some space above */
+  padding-bottom: 3rem; /* Ensure padding at the bottom to avoid content cut-off */
+  overflow-y: auto; /* Allow vertical scrolling within this container */
 }
 
 .card {
   display: flex;
   flex-direction: column; /* Stack content vertically inside the card */
   align-items: flex-start; /* ✅ Left-align the content */
-  /* background: #113e53; */
   border: 1px solid #ddd;
-  
   padding: 1.5rem; /* Increased padding for a larger card */
   box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); /* Scalable shadow */
-
-
   background: rgba(10, 48, 78, 0.85); /* Dark blue with transparency */
   border-radius: 10px; /* Slightly rounded edges for a modern feel */
-  
-  /* Ensures consistent card size */
   width: 90%; /* Keeps the card responsive */
   max-width: 480px; /* Increased max-width for an even larger card */
   height: auto; /* Allow the height to adjust based on content */
   min-height: 20rem; /* Increased minimum height for a larger card */
-  
   overflow: hidden; /* Hide content that overflows */
-
-
-
   animation: fadeInUp 1.2s ease-out forwards;
 }
 
@@ -138,8 +135,6 @@ html, body {
   .forecastContainer {
     gap: 1.5rem; /* Adjust gap for smaller screens */
   }
-
-
 
   .weather-animation {
     max-width: 2.5rem; /* Slightly larger animation for smaller screens */

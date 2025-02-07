@@ -37,9 +37,12 @@ const ForecastPage = () => {
   return (
     <WeatherBackground>
       <div className="full-screen">
+        {/* 2-Hour Forecast heading */}
+        <h1 className="title">2-Hour Weather Forecast</h1>
         {/* Display Weather Map at the top */}
         <WeatherMap />
 
+        {/* 4-Day Forecast heading */}
         <h1 className="title">4-Day Weather Forecast</h1>
         {error ? (
           <p className="error">{error}</p>
@@ -56,5 +59,6 @@ const ForecastPage = () => {
 };
 
 export default ForecastPage;
+
 
 
