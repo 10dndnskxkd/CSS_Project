@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import WeatherBackground from "../../Components/page";
 import styles from './WeatherForecast.module.css';  // Import the CSS file
 
 function WeatherForecast() {
@@ -47,6 +48,7 @@ function WeatherForecast() {
   }
 
   return (
+    <WeatherBackground>
     <div className={styles.container}>
       <h1 className={styles.title}>Weather Forecast</h1>
       
@@ -68,6 +70,7 @@ function WeatherForecast() {
         ))}
       </ul>
     </div>
+    </WeatherBackground>
   );
 }
 

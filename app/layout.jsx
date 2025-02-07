@@ -1,61 +1,69 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Navbar from "./ui/Navbar"; // Keep your existing import
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "./ui/Navbar"; // ✅ Keep Navbar import
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'CSS Assmt',
-}
+  title: "CSS Assmt",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={inter.className}
+        style={{
+          overflow: "hidden", // ✅ Prevent scrolling
+          height: "100vh",
+          margin: 0,
+          padding: 0,
+        }}
+      >
         {/* ✅ Transparent Navbar with Blur Effect */}
         <div
           style={{
-            position: 'fixed',
-            top: -5,
+            position: "fixed",
+            top: 0,
             left: 0,
-            width: '100%',
-            backgroundColor: 'rgba(255, 255, 255, 0)', // ✅ Transparent white
-            backdropFilter: 'blur(10px)', // ✅ Glass effect
+            width: "100%",
+            backgroundColor: "rgba(255, 255, 255, 0.2)", // ✅ Slight Transparency
+            backdropFilter: "blur(10px)", // ✅ Glass effect
             zIndex: 1000,
-            padding: '0',
-            boxShadow: 'none' // ✅ Remove shadow
+            padding: "10px 0",
+            boxShadow: "none", // ✅ Remove shadow
           }}
         >
-          <div 
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'space-between', 
-              width: '100%', 
-              padding: '10px 20px' 
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+              padding: "10px 20px",
             }}
           >
-            <img 
-              src="/friends.png" 
-              alt="NEA logo" 
-              style={{ width: '150px', height: 'auto' }} 
+            <img
+              src="/nea.png"
+              alt="NEA logo"
+              style={{ width: "150px", height: "auto" }}
             />
             <Navbar />
           </div>
         </div>
 
         {/* ✅ Ensuring Content Starts Below Navbar */}
-        <div 
-          style={{ 
-            paddingTop: '80px', 
-            width: '100vw', 
-            height: '100vh', 
-            boxSizing: 'border-box' 
+        <div
+          style={{
+            paddingTop: "90px", // ✅ Adjust spacing for navbar
+            width: "100vw",
+            height: "100vh",
+            boxSizing: "border-box",
           }}
         >
           {children}
         </div>
       </body>
     </html>
-  )
+  );
 }

@@ -8,7 +8,7 @@
 
 
 :root {
-  --background: transparent;
+  --background: #ffffff;
   --foreground: #171717;
 }
 
@@ -40,84 +40,24 @@ p {
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow : hidden;
+  height: 100vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-.navbarContainer {
-  background: transparent !important; /* Remove black background */
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-
-
-/* Ensure the navigation bar has no background */
-.navbar {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-/* Ensure all div elements in navbar don't have a background */
-.navbarContainer div {
-  background: none !important;
-  box-shadow: none !important;
-}
-
-/* Logo Styling */
-.logoContainer {
-  display: flex;
-  align-items: center;
-}
-
-/* Logo Size */
-.logoContainer img {
-  height: 50px;
-  width: auto;
-  margin-right: 20px;
-}
-
-/* Navigation Links */
-.navitem {
-  color: white !important;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 15px;
-}
-
-/* Button */
-.navButton {
-  background: transparent;
-  border: 2px solid white; /* Change border color if needed */
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-/* Ensure navbar does not overlap content */
-.bodyPadding {
-  padding-top: 80px;
-}
-
-#root, #__next {
-  height : 100%;
+  overflow: hidden;
 }
 
 
 
 
-.leaflet-container {
-  z-index: 0;
-}
+
+
+
+
+
+
+
+
+

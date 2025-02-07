@@ -1,17 +1,31 @@
+// Theresa
+
 "use client";  // ✅ Make it a Client Component
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import WeatherBackground from "./Components/page"; // ✅ Ensure correct import path
 import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Home() {
+
+//     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setCurrentTime(new Date().toLocaleString());
+//     }, 1000); // Update time every second
+
+//     return () => clearInterval(interval); // Cleanup on unmount
+//   }, []);
+
   return (
+    
     <WeatherBackground>
       <motion.div
         initial={{ opacity: 0, y: 50 }} // Start hidden and move up
-        animate={{ opacity: 1, y: 0 }} // Fade in and rise up
+        animate={{ opacity: 1, y: -20 }} // Fade in and rise up
         transition={{ duration: 1.5, ease: "easeOut" }} // Smooth transition
         style={{
           backgroundSize: "cover",
@@ -26,6 +40,7 @@ export default function Home() {
           justifyContent: "center",
           alignItems: "center",
           position: "relative", 
+          marginTop: "-70px",
         }}
       >
         {/* ✅ Mascot Animation */}
