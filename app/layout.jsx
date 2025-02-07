@@ -20,18 +20,19 @@ export default function RootLayout({ children }) {
           padding: 0,
         }}
       >
-        {/* ✅ Transparent Navbar with Blur Effect */}
+        {/* ✅ Transparent Navbar with Subtle Blur Effect */}
         <div
           style={{
             position: "fixed",
             top: 0,
             left: 0,
             width: "100%",
-            backgroundColor: "rgba(255, 255, 255, 0.2)", // ✅ Slight Transparency
-            backdropFilter: "blur(10px)", // ✅ Glass effect
+            backgroundColor: "rgba(255, 255, 255, 1)", // ✅ Slight Transparency
+            backdropFilter: "blur(5px)", // ✅ Subtle Glass effect
             zIndex: 1000,
             padding: "10px 0",
             boxShadow: "none", // ✅ Remove shadow
+            background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0) 100%)", // Lighter, more subtle gradient
           }}
         >
           <div
