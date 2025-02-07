@@ -1,0 +1,95 @@
+/* theresa  */
+
+/* Center all elements in the middle of the screen */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* Full screen height */
+    width: 100vw;
+    position: relative;
+}
+
+/* Style for Real-Time Clock */
+.real-time-clock {
+    font-family: "Raleway", sans-serif;
+    font-size: 40px; /* Adjust size if needed */
+    font-weight: 500;
+    color: #cbe4a3; /* Change this to the desired color (e.g., gold) */
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 5px rgba(255, 255, 255, 8.0); /* Optional shadow for better visibility */
+    text-shadow:
+    -2px -2px 0 #000,  
+     2px -2px 0 #000,  
+    -2px  2px 0 #000,  
+     2px  2px 0 #000,
+    -3px -3px 3px rgba(0, 0, 0, 0.8),
+     3px  3px 3px rgba(0, 0, 0, 0.8);
+}
+
+
+/* Make the heading stand out */
+.main-heading {
+    font-family: "Playfair Display", serif;
+    font-size: 70px;
+    font-weight: 700;
+    color: #ffffff; /* White color */
+    text-align: center;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+
+    text-shadow:
+    -2px -2px 0 #000,  
+     2px -2px 0 #000,  
+    -2px  2px 0 #000,  
+     2px  2px 0 #000,
+    -3px -3px 3px rgba(0, 0, 0, 0.8),
+     3px  3px 3px rgba(0, 0, 0, 0.8);
+
+}
+
+/* Update paragraph text color */
+.subtext {
+    font-family: "Poppins", sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+    color: #ffffff; /* Light gray */
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+
+    text-shadow:
+    -2px -2px 0 #000,  
+     2px -2px 0 #000,  
+    -2px  2px 0 #000,  
+     2px  2px 0 #000,
+    -3px -3px 3px rgba(0, 0, 0, 0.8),
+     3px  3px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Center mascot image */
+.mascot {
+    width: 650px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Center social media icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white; /* Default color */
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #119864; /* Change to gold on hover */
+}
