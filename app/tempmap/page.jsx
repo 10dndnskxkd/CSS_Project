@@ -5,6 +5,27 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Circle, Tooltip } from 'react-leaflet';
 
+
+
+// Define the DateTimeDisplay component
+function DateTimeDisplay() {
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString());
+    }, 1000); // Update time every second
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div style={{ position: 'absolute', top: '10px', right: '0px', backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '5px 10px', borderRadius: '5px', zIndex: 1000 }}>
+      {currentTime}
+    </div>
+  );
+}
+
 export default function TemperatureMapPage() {
   const [temperatureData, setTemperatureData] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -53,10 +74,12 @@ export default function TemperatureMapPage() {
 
     // Refresh data every 5 minutes
     const interval = setInterval(fetchTemperatureData, 300000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
+      <DateTimeDisplay /> {/* Add DateTimeDisplay component */}
       {errorMessage ? (
         <p>{errorMessage}</p>
       ) : (
