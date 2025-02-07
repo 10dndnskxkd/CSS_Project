@@ -1,113 +1,91 @@
-:root {
-    --green-primary: #8cbb74;
-    --green-secondary: #4D947A;
-    --green-light: #E6F2E8;
-    --gray-background: #F4F4F4;
-    --text-dark: #333333;
-}
-
-* {
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    overflow-y: auto !important;
+    background: url('/your-background-image.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+    color: white;
+    font-family: Arial, sans-serif;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--gray-background);
-}
 
 .page-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    min-height: 200vh !important; /* Ensures scrolling */
+    overflow-y: auto !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 50px !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
 }
 
-.header {
-    background-color: var(--green-primary);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    position: relative;
+/* Fixing opacity issues */
+.mission-top {
+    text-align: center !important;
+    padding: 50px !important;
+    background-color: #4CAF50 !important; /* Green background */
+    color: white !important;
+    font-size: 1.5rem !important;
+    margin-top: 0 !important;
+    opacity: 1 !important; /* Ensure visibility */
 }
 
-.header::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(to bottom, var(--green-primary), transparent);
+.mission-top h1 {
+    font-size: 3rem !important;
+    margin-bottom: 20px !important;
+    opacity: 1 !important; /* Ensure visibility */
 }
 
-.content {
-    padding: 40px 20px;
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
+.mission-top p {
+    font-size: 1.2rem !important;
+    line-height: 1.6 !important;
+    margin-top: 10px !important;
+    opacity: 1 !important; /* Ensure visibility */
 }
 
-.mission-section {
-    background-color: var(--green-light);
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
+/* Key areas section */
 .key-areas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+    opacity: 1 !important; /* Ensure it remains visible */
 }
 
+/* Individual area boxes */
 .area {
-    background-color: white;
-    border: 2px solid var(--green-primary);
-    border-radius: 10px;
-    padding: 25px;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex !important;
+    flex-direction: column !important; /* Stacked vertically */
+    align-items: center !important;
+    width: 80% !important;
+    max-width: 1200px !important;
+    background: #1a1a1a !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+    opacity: 1 !important; /* Ensure visibility */
 }
 
-.area:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+.area-image {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin-bottom: 20px !important;
 }
 
-.additional-info {
-    margin-top: 40px;
-    background-color: var(--green-light);
-    padding: 30px;
-    border-radius: 10px;
-}
-
-.footer {
-    background-color: var(--green-secondary);
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .key-areas {
-        grid-template-columns: 1fr;
+    .area {
+        width: 100% !important;
     }
-}
-
-/* Scrollbar Styling */
-.content::-webkit-scrollbar {
-    width: 10px;
-}
-
-.content::-webkit-scrollbar-track {
-    background: var(--green-light);
-}
-
-.content::-webkit-scrollbar-thumb {
-    background-color: var(--green-primary);
-    border-radius: 5px;
+    .area-image {
+        width: 100% !important;
+    }
+    .area-content {
+        width: 100% !important;
+    }
 }
