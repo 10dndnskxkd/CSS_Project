@@ -1,3 +1,5 @@
+"use client"; // ✅ Make it a Client Component
+
 import { Inter } from "next/font/google";
 import "../globals.css";
 import Navbar from "../ui/Navbar"; // ✅ Keep Navbar import

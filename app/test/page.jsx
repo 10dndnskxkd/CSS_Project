@@ -1,166 +1,80 @@
-// Theresa
+'use client';
 
-"use client"; // ✅ Make it a Client Component
+import { motion, useScroll, useTransform } from "framer-motion";
+import "./styles.css";
+import KeyAreas from "./KeyAreas"; // Import the KeyAreas component
 
-import React, { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion"; // ✅ Import Framer Motion
-import Link from "next/link";
-import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
-import WeatherBackground from "../Components/page"; // ✅ Ensure correct import path
-
-export default function Home() {
-  const { scrollYProgress } = useScroll(); // ✅ Track Scroll Progress
-
-  // ✅ Parallax Effect
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  // ✅ Real-time Clock
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleString());
-    }, 1000); // Update time every second
-
-    return () => clearInterval(interval);
-  }, []);
+export default function AboutPage() {
+  const { scrollYProgress } = useScroll(); // Track scrolling
+  const fadeIn = useTransform(scrollYProgress, [0, 1], [1, 0]); // Fade-out effect
 
   return (
-    <WeatherBackground>
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: -20 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        style={{
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          minHeight: "100vh", // ✅ Set to min-height so scrolling works
-          width: "100vw",
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "relative",
-          marginTop: "-70px",
-        }}
-      >
-        {/* ✅ Mascot Animation */}
-        <motion.img
-          src="/friends.png"
-          alt="NEA Mascot"
-          style={{
-            width: "650px",
-            height: "auto",
-            marginBottom: "20px",
-            scale: imageScale, // ✅ Parallax Effect
-          }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        />
-
-        {/* ✅ Real-Time Clock */}
-        <motion.p
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: "20px",
-            fontWeight: "500",
-            color: "lightgray",
-            textAlign: "center",
-            marginBottom: "10px",
-          }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          {currentTime}
+    <motion.div
+      className="page-container"
+      style={{ minHeight: "200vh", overflowY: "auto" }} // Ensure scrolling
+    >
+      {/* Mission Section at the Top */}
+      <section className="mission-top">
+        <motion.h1 style={{ opacity: fadeIn }}>Our Mission</motion.h1>
+        <motion.p style={{ opacity: fadeIn }}>
+          The National Environment Agency (NEA) is the leading public organisation responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
         </motion.p>
+      </section>
 
-        {/* ✅ Heading Animation */}
-        <motion.h1
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            fontSize: "60px",
-            fontWeight: "700",
-            color: "white",
-            textAlign: "center",
-            marginBottom: "10px",
-            opacity: textOpacity, // ✅ Fades out on scroll
-          }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          Safeguard.Nurture.Cherish
+      {/* Header Section */}
+      <header className="header">
+        <motion.h1 style={{ opacity: fadeIn }}>
+          National Environment Agency (NEA)
         </motion.h1>
-
-        {/* ✅ Paragraph Animation */}
-        <motion.p
-          style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontSize: "18px",
-            fontWeight: "300",
-            color: "white",
-            textAlign: "center",
-            maxWidth: "700px",
-            margin: "0 auto",
-            opacity: textOpacity, // ✅ Fades out on scroll
-          }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          To ensure a clean and sustainable environment for Singapore, together
-          with our partners and the community.
+        <motion.p style={{ opacity: fadeIn }}>
+          Pioneering Environmental Sustainability in Singapore
         </motion.p>
+      </header>
 
-        {/* ✅ Social Media Icons Animation */}
-        <motion.div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "20px",
-            marginTop: "20px",
-          }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <Link href="https://www.facebook.com/NEASingapore/" target="_blank" rel="noopener noreferrer">
-            <FaFacebook size={40} color="white" />
-          </Link>
-          <Link href="https://www.youtube.com/channel/UC-tjEFkd0tT2VpD5vbjyAKA" target="_blank" rel="noopener noreferrer">
-            <FaYoutube size={40} color="white" />
-          </Link>
-          <Link href="https://www.x.com/NEAsg" target="_blank" rel="noopener noreferrer">
-            <FaTwitter size={40} color="white" />
-          </Link>
-          <Link href="https://www.instagram.com/nea_sg/" target="_blank" rel="noopener noreferrer">
-            <FaInstagram size={40} color="white" />
-          </Link>
-        </motion.div>
-      </motion.div>
+      {/* Main Content */}
+      <motion.div className="content">
+        {/* Mission Section */}
+        <section className="mission-section">
+          <motion.h2 style={{ opacity: fadeIn }}>Our Mission</motion.h2>
+          <motion.p style={{ opacity: fadeIn }}>
+            The National Environment Agency (NEA) is the leading public organisation responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
+          </motion.p>
+        </section>
 
-      {/* ✅ Scrollable Section with Content */}
-      <motion.div
-        style={{
-          minHeight: "150vh", // ✅ Allow scrolling
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#121212",
-          color: "white",
-          padding: "50px",
-          textAlign: "center",
-        }}
-      >
-        <h2>Scroll Down to See Effects</h2>
-        <p>As you scroll, animations will take effect on various elements.</p>
+        {/* Key Areas Section */}
+        <div className="key-areas" id="key-areas">
+          <KeyAreas /> {/* Use the KeyAreas component here */}
+        </div>
+
+        {/* Additional Information Section */}
+        <section className="additional-info">
+          <motion.h2 style={{ opacity: fadeIn }}>Our Comprehensive Approach</motion.h2>
+          <motion.p style={{ opacity: fadeIn }}>
+            NEA works closely with its partners and the community to develop environmental and public health initiatives and programmes.
+          </motion.p>
+        </section>
+
+        {/* Video Section */}
+        <div>
+          <h2>Find out more here!</h2>
+          <video width="500" height="400" controls>
+            <source src="https://youtu.be/Noi3zog1quA" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        {/* Footer */}
+        <footer className="footer">
+          <p>© 2024 National Environment Agency, Singapore</p>
+        </footer>
       </motion.div>
-    </WeatherBackground>
+    </motion.div>
   );
 }
+
+
+
+
+
+
+

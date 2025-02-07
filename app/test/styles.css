@@ -1,0 +1,91 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-y: auto !important; /* Ensure the page is scrollable */
+    background: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.page-container {
+    min-height: 200vh !important; /* Ensures scrolling */
+    overflow-y: auto !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 50px !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+/* Fixing opacity issues */
+.mission-top {
+    text-align: center !important;
+    padding: 50px !important;
+    background-color: #4CAF50 !important; /* Green background */
+    color: white !important;
+    font-size: 1.5rem !important;
+    margin-top: 0 !important;
+    opacity: 1 !important; /* Ensure visibility */
+}
+
+.mission-top h1 {
+    font-size: 3rem !important;
+    margin-bottom: 20px !important;
+    opacity: 1 !important; /* Ensure visibility */
+}
+
+.mission-top p {
+    font-size: 1.2rem !important;
+    line-height: 1.6 !important;
+    margin-top: 10px !important;
+    opacity: 1 !important; /* Ensure visibility */
+}
+
+/* Key areas section */
+.key-areas {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+    opacity: 1 !important; /* Ensure it remains visible */
+}
+
+/* Individual area boxes */
+.area {
+    display: flex !important;
+    flex-direction: column !important; /* Stacked vertically */
+    align-items: center !important;
+    width: 80% !important;
+    max-width: 1200px !important;
+    background: #1a1a1a !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+    opacity: 1 !important; /* Ensure visibility */
+}
+
+.area-image {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin-bottom: 20px !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .area {
+        width: 100% !important;
+    }
+    .area-image {
+        width: 100% !important;
+    }
+    .area-content {
+        width: 100% !important;
+    }
+}
+
+  
