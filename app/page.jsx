@@ -26,7 +26,7 @@ function RealTimeClock() {
       className="real-time-clock"
       initial={{ opacity: 0, y: -10 }} 
       animate={{ opacity: 1, y: 0 }}  
-      transition={{ duration: 1 }} 
+      transition={{ duration: 2 }} 
     >
       {currentTime}
     </motion.p>
@@ -46,15 +46,15 @@ export default function Home() {
           src="/friends.png"
           alt="NEA Mascot"
           className="mascot"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 5, scale: 2.8 }}
+          whileInView={{ opacity: 3, scale: 1 }}
+          transition={{ duration: 3 }}
         />
 
-        {/* ✅ Real-Time Clock */}
+        {/* Real-Time Clock */}
         <RealTimeClock />
 
-        {/* ✅ Heading Animation - Fade In */}
+        {/* Heading Animation - Fade In */}
         <motion.h1 
           className="main-heading"
           initial={{ opacity: 0, y: -30 }}  // Start slightly above with opacity 0
@@ -64,7 +64,7 @@ export default function Home() {
           Safeguard.Nurture.Cherish
         </motion.h1>
 
-        {/* ✅ Subtitle Animation - Fade In with Delay */}
+        {/* Subtitle Animation - Fade In with Delay */}
         <motion.p 
           className="subtext"
           initial={{ opacity: 0, y: 20 }}  // Start below

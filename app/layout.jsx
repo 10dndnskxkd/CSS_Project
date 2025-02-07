@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import MusicPlayer from "./Music/MusicPlayer";  // ✅ Import MusicPlayer component
 import Navbar from "./ui/Navbar"; // ✅ Keep Navbar import
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,6 +21,9 @@ export default function RootLayout({ children }) {
           padding: 0,
         }}
       >
+        {/* ✅ Music Player for Background Music */}
+        <MusicPlayer />
+
         {/* ✅ Transparent Navbar with Subtle Blur Effect */}
         <div
           style={{
@@ -32,7 +36,7 @@ export default function RootLayout({ children }) {
             zIndex: 1000,
             padding: "10px 0",
             boxShadow: "none", // ✅ Remove shadow
-            background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0) 100%)", // Lighter, more subtle gradient
+            background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0) 100%)",
           }}
         >
           <div
