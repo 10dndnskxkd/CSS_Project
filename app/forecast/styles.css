@@ -32,14 +32,14 @@ html, body {
 .title {
   text-align: center;
   text-shadow: 3px 3px 5px rgba(255, 255, 255, 8.0); /* Optional: Adds a shadow effect */
-  color: #b3bec9; /* Darker color for the title */
+  color: #ffffff; /* Darker color for the title */
   margin-bottom: 2rem; /* Increased margin to make space for a larger container */
   font-weight: bold; /* Make it bold */
   letter-spacing: 2px; /* Add spacing for readability */
   font-size: 6rem; /* Increase font size */
-
+  padding: 10px 0; /* Adds a nice spacing effect */
   
-  background: rgba(0, 0, 0, 0.185); /* Dark semi-transparent background */
+  background: rgba(70, 70, 70, 0.3); /* Dark semi-transparent background */
   
   text-shadow:
     -2px -2px 0 #000,  
@@ -70,11 +70,15 @@ html, body {
   display: flex;
   flex-direction: column; /* Stack content vertically inside the card */
   align-items: flex-start; /* ✅ Left-align the content */
-  background: #113e53;
+  /* background: #113e53; */
   border: 1px solid #ddd;
-  border-radius: 0.375rem; /* Slightly smaller border radius */
+  
   padding: 1.5rem; /* Increased padding for a larger card */
   box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); /* Scalable shadow */
+
+
+  background: rgba(10, 48, 78, 0.85); /* Dark blue with transparency */
+  border-radius: 10px; /* Slightly rounded edges for a modern feel */
   
   /* Ensures consistent card size */
   width: 90%; /* Keeps the card responsive */
@@ -83,6 +87,10 @@ html, body {
   min-height: 20rem; /* Increased minimum height for a larger card */
   
   overflow: hidden; /* Hide content that overflows */
+
+
+
+  animation: fadeInUp 1.2s ease-out forwards;
 }
 
 .card h2 {
@@ -94,13 +102,13 @@ html, body {
 
 .card p {
   margin: 0.5rem 0; /* Adjusted margin for more spacing */
-  color: #bdc3c7; /* Lighter text color for paragraphs */
+  color: #ffffff; /* Lighter text color for paragraphs */
   word-wrap: break-word; /* Ensure long words wrap to the next line */
   text-align: left; /* ✅ Left-align forecast text */
 }
 
 .card strong {
-  color: #62bfcf; /* Yellow color for important text */
+  color: #f9d71c; /* Yellow color for important text */
 }
 
 .weather-animation {
@@ -131,15 +139,20 @@ html, body {
     gap: 1.5rem; /* Adjust gap for smaller screens */
   }
 
-  .card {
-    padding: 1.25rem; /* Reduced padding for smaller screens */
-    min-height: 16rem; /* Adjust minimum height for smaller screens */
-    width: 100%; /* Full width for smaller screens */
-    max-width: 90%; /* Adjust max-width on smaller screens */
-  }
+
 
   .weather-animation {
     max-width: 2.5rem; /* Slightly larger animation for smaller screens */
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
