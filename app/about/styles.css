@@ -17,7 +17,7 @@ html, body {
     align-items: center !important;
     justify-content: flex-start !important;
     text-align: center !important;
-    padding: 50px !important;
+    padding: 20px !important;
     max-width: 1400px !important;
     margin: 0 auto !important;
 }
@@ -54,6 +54,7 @@ html, body {
     gap: 30px !important;
     margin-top: 40px !important;
     opacity: 1 !important; /* Ensure it remains visible */
+    padding-top: 100px;
 }
 
 /* Individual area boxes */
@@ -88,4 +89,18 @@ html, body {
     .area-content {
         width: 100% !important;
     }
+}
+
+.center-video{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center-video iframe {
+    width: 950px !important;
+    height: 600px !important;
+    max-width: 100%;
+    height: auto;
 }

@@ -53,7 +53,7 @@ const KeyAreas = () => {
             src={area.image} // Using different images
             alt={area.title}
             className="area-image"
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.07}}
           />
           <h3>{area.title}</h3>
           <p>{area.description}</p>

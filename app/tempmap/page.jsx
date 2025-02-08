@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
-import { useEffect, useState } from 'react';
+import '../globals.css'; // Import global.css
+import './styles.css'; // Import styles.css
+import Footer from '../Components/footer.jsx'; // Import Footer component
 import { MapContainer, TileLayer, Circle, Tooltip } from 'react-leaflet';
-
-
 
 // Define the DateTimeDisplay component
 function DateTimeDisplay() {
@@ -20,7 +20,7 @@ function DateTimeDisplay() {
   }, []);
 
   return (
-    <div style={{ position: 'absolute', top: '10px', right: '0px', backgroundColor: 'rgba(255, 255, 255, 0.8)', padding: '5px 10px', borderRadius: '5px', zIndex: 1000 }}>
+    <div className="date-time-display">
       {currentTime}
     </div>
   );
@@ -29,6 +29,7 @@ function DateTimeDisplay() {
 export default function TemperatureMapPage() {
   const [temperatureData, setTemperatureData] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   // Fetch air temperature data from the API
   const fetchTemperatureData = async () => {
@@ -77,33 +78,40 @@ export default function TemperatureMapPage() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <div style={{ position: 'relative' }}>
-      <DateTimeDisplay /> {/* Add DateTimeDisplay component */}
-      {errorMessage ? (
-        <p>{errorMessage}</p>
-      ) : (
-        <MapContainer center={[1.3521, 103.8198]} zoom={12} style={{ height: '1150px', width: '100%' }}>
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
-          {temperatureData.map((station, index) => (
-            <Circle
-              key={index}
-              center={[station.latitude, station.longitude]}
-              radius={1500}
-              color="blue"
-              fillColor="blue"
-              fillOpacity={0.4}
-            >
-              <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
-                <span>{station.name}: {station.value}°C</span>
-              </Tooltip>
-            </Circle>
-          ))}
-        </MapContainer>
-      )}
+    <div className="page-container">
+      <div className="map-container">
+        {isMounted && <DateTimeDisplay />} {/* Conditionally render DateTimeDisplay component */}
+        {errorMessage ? (
+          <p>{errorMessage}</p>
+        ) : (
+          <MapContainer center={[1.354372, 103.833816]} zoom={12} className="map">
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {temperatureData.map((station, index) => (
+              <Circle
+                key={index}
+                center={[station.latitude, station.longitude]}
+                radius={1500}
+                color="blue"
+                fillColor="blue"
+                fillOpacity={0.4}
+              >
+                <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
+                  <span>{station.name}: {station.value}°C</span>
+                </Tooltip>
+              </Circle>
+            ))}
+          </MapContainer>
+        )}
+      </div>
+      <Footer /> {/* Add Footer component */}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import Link from "next/link"; // Import Link component from Next.js
 import "./globals.css";
 import MusicPlayer from "./Music/MusicPlayer";  // ✅ Import MusicPlayer component
 import Navbar from "./ui/Navbar"; // ✅ Keep Navbar import
@@ -48,11 +49,13 @@ export default function RootLayout({ children }) {
               padding: "10px 20px",
             }}
           >
-            <img
-              src="/nea.png"
-              alt="NEA logo"
-              style={{ width: "150px", height: "auto" }}
-            />
+            <Link href="/">
+              <img
+                src="/nea.png"
+                alt="NEA logo"
+                style={{ width: "150px", height: "auto", cursor: "pointer" }}
+              />
+            </Link>
             <Navbar />
           </div>
         </div>

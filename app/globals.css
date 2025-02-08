@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap');
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 h1 {
@@ -46,18 +46,22 @@ html, body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
 }
 
+.page-container {
+  flex: 1;
+}
 
+.footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
 
-
-
-
-
-
-
-
-
-
-
+.footer p {
+  margin: 0;
+  color: black;
+}

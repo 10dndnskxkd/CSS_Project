@@ -4,10 +4,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import "./stylesHome/home.css";  // ✅ Import CSS file
+import "./globals.css";  // ✅ Import global CSS file
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 import WeatherBackground from "./Components/page"; 
+import Footer from "./Components/footer";  // ✅ Import Footer component
 
 // ✅ Real-Time Clock Component
 function RealTimeClock() {
@@ -101,6 +103,11 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <WeatherBackground>
@@ -116,7 +123,7 @@ export default function Home() {
         />
 
         {/* ✅ Real-Time Clock */}
-        <RealTimeClock />
+        {isMounted && <RealTimeClock />} {/* Conditionally render RealTimeClock component */}
 
         {/* ✅ Heading Animation - Fade In */}
         <motion.h1
@@ -163,6 +170,8 @@ export default function Home() {
         {/* ✅ Music Player */}
         <MusicPlayer />
       </div>
+      {/* ✅ Footer */}
+      <Footer />
     </WeatherBackground>
   );
 }

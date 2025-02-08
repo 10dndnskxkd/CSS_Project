@@ -1,16 +1,33 @@
 /* theresa  */
 
-/* Center all elements in the middle of the screen */
+/* Ensure the body and html elements take up the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+/* Ensure the main container takes up the full height and allows scrolling */
 .center-container {
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Ensure the main container takes up the full height and allows scrolling */
+.page-container {
+    min-height: 100vh; /* Ensure it takes at least the full viewport height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh; /* Full screen height */
-    width: 100vw;
-    position: relative;
-}
+    justify-content: space-between; /* Ensure space between content and footer */
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
 /* Style for Real-Time Clock */
 .real-time-clock {
@@ -83,7 +100,7 @@
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
-}
+  }
 
 .social-icons a {
     color: white; /* Default color */
@@ -117,4 +134,22 @@
     background-color: #0056b3;
   }
   
+  /* Add overflow auto to allow scrolling if content overflows */
+.overflow-container {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Add overflow auto to allow scrolling if content overflows */
+.content {
+    flex: 1; /* Allow the content to grow and take available space */
+    overflow: auto;
+  }
   
+  .footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+  }

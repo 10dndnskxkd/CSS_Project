@@ -1,11 +1,13 @@
 'use client';
 
 import './styles.css';
+import '../globals.css'; // Import global.css
 import ForecastCard from './ForecastCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherBackground from '../Components/page';
 import WeatherMap from './WeatherMap'; // Import WeatherMap
+import Footer from '../Components/footer.jsx'; // Correct import path for Footer
 
 const ForecastPage = () => {
   const [forecasts, setForecasts] = useState([]);
@@ -54,11 +56,9 @@ const ForecastPage = () => {
           </div>
         )}
       </div>
+      <Footer /> {/* Add Footer component */}
     </WeatherBackground>
   );
 };
 
 export default ForecastPage;
-
-
-
