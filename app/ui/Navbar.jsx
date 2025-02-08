@@ -28,8 +28,8 @@ export default function Navbar() {
           <Link href="/about" legacyBehavior>
             <a className={`${styles.navitem} ${pathname === "/about" ? styles.active : ""}`}>About Us</a>
           </Link>
-          <Link href="/references" legacyBehavior>
-            <a className={`${styles.navitem} ${pathname === "/references" ? styles.active : ""}`}>References</a>
+          <Link href="/e-service" legacyBehavior>
+            <a className={`${styles.navitem} ${pathname === "/e-service" ? styles.active : ""}`}>E-Service</a>
           </Link>
 
           {/* ✅ Contact NEA Dropdown */}
