@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const KeyAreas = () => {
   const keyAreas = [
@@ -41,26 +41,20 @@ const KeyAreas = () => {
     },
   ];
 
-  // Duplicate the keyAreas to create an infinite effect
-  const extendedKeyAreas = [...keyAreas, ...keyAreas];
-
+  const extendedKeyAreas = [...keyAreas, ...keyAreas]; // Duplicate for seamless scroll
   const scrollContainerRef = useRef(null);
-  const [isReversed, setIsReversed] = useState(false);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
-    const containerWidth = scrollContainer.offsetWidth;
-    const scrollWidth = scrollContainer.scrollWidth / 2; // Half of the total scroll width
-    const speed = 30; // Duration of the scroll in seconds
+    const scrollWidth = scrollContainer.scrollWidth / 2; // Get half of the total scroll width
+    const speed = 30; // Adjust speed of scroll animation
 
     const scrollAnimation = () => {
-      // Apply the animation in the current direction (default left-to-right)
       scrollContainer.style.transition = `transform ${speed}s linear`;
       scrollContainer.style.transform = `translateX(-${scrollWidth}px)`;
 
-      // When the animation completes, reverse the scroll direction
+      // Reset the scroll position after one full scroll
       setTimeout(() => {
-        setIsReversed((prev) => !prev); // Toggle the direction state
         scrollContainer.style.transition = "none"; // Disable transition for reset
         scrollContainer.style.transform = "translateX(0)";
         setTimeout(() => {
@@ -69,9 +63,8 @@ const KeyAreas = () => {
       }, speed * 1000); // Delay for the duration of the scroll animation
     };
 
-    scrollAnimation(); // Start the scroll animation
-
-  }, [isReversed]);
+    scrollAnimation(); // Start the scroll animation on load
+  }, []);
 
   return (
     <motion.div
@@ -86,8 +79,7 @@ const KeyAreas = () => {
         ref={scrollContainerRef}
         style={{
           display: "flex",
-          width: "max-content", // Ensures that the container is large enough to hold all items
-          flexDirection: isReversed ? "row-reverse" : "row", // Change direction based on isReversed state
+          width: "max-content", // Makes sure the container is wide enough for all items
         }}
       >
         {/* Render all key areas with horizontal scroll */}
