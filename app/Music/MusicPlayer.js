@@ -2,39 +2,35 @@
 
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import "./Music.css"; // ✅ Ensure styles are applied
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const handlePlay = () => {
+  const togglePlay = () => {
     if (audioRef.current) {
-      audioRef.current.play()
-        .then(() => setIsPlaying(true))
-        .catch(error => {
-          console.log("Autoplay blocked: User interaction required", error);
-        });
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(error => console.log("Autoplay blocked:", error));
+      }
+      setIsPlaying(!isPlaying);
     }
   };
 
-  useEffect(() => {
-    // Attempt to play after a short delay (optional)
-    const timeout = setTimeout(() => {
-      handlePlay();
-    }, 1000);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
-    <div>
-      
-
-      <audio ref={audioRef} loop muted={!isPlaying}>
+    <div className="music-player">
+      <audio ref={audioRef} loop>
         <source src="/save-my-world.mp3" type="audio/mpeg" />
         Your browser does not support the audio tag.
       </audio>
+
+      {/* ✅ Button with new styles */}
+      <button className="btn-1" onClick={togglePlay}>
+        {isPlaying ? "Stop :(" : "Play ;)"}
+      </button>
     </div>
   );
 }

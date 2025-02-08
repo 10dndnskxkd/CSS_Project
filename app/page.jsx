@@ -11,6 +11,7 @@ import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 import WeatherBackground from "./Components/page"; 
 import Footer from "./Components/footer";  // ✅ Import Footer component
 
+
 // ✅ Real-Time Clock Component
 function RealTimeClock() {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
@@ -71,32 +72,9 @@ function MusicPlayer() {
     };
   }, [isPlaying]);
 
-  const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch(error => {
-          console.log("Autoplay blocked: User interaction required", error);
-        });
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  
 
-  return (
-    <div className="music-player">
-      <audio ref={audioRef} loop>
-        <source src="/save-my-world.mp3" type="audio/mpeg" />
-        Your browser does not support the audio tag.
-      </audio>
-
-      {/* Play/Stop Button */}
-      <button className="music-button" onClick={togglePlay}>
-        {isPlaying ? "Stop Music" : "Play Music"}
-      </button>
-    </div>
-  );
+  
 }
 
 export default function Home() {
@@ -168,6 +146,7 @@ export default function Home() {
         </motion.div>
 
         {/* ✅ Music Player */}
+        
         <MusicPlayer />
       </div>
       {/* ✅ Footer */}

@@ -1,26 +1,27 @@
 html, body {
   width: 100%;
-  height: auto !important; /* Remove fixed height */
-  min-height: 100vh !important; /* Ensure scrolling is possible */
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-size: 16px;
-  overflow-x: hidden !important; /* Prevent horizontal scrolling */
-  overflow-y: auto !important; /* Allow vertical scrolling */
-  display: block !important; /* Ensure flex isn’t restricting height */
+  font-size: 16px; /* Base font size for scaling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  color: #333; /* Global text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-
-
 
 .container {
-  display: block !important; /* Allow it to expand */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   background-color: #f9f9f9;
-  padding: 2rem;
-  min-height: 100vh;
+  padding: 2rem; /* Increased padding to make the container bigger */
+  overflow-y: auto; /* Enable scrolling if the content overflows */
+  flex-grow: 1; /* Allow container to grow to take full available height */
 }
-
-
 
 .full-screen {
   width: 100%;
@@ -40,7 +41,7 @@ html, body {
   margin-bottom: 2rem; /* Increased margin to make space for a larger container */
   font-weight: bold; /* Make it bold */
   letter-spacing: 2px; /* Add spacing for readability */
-  font-size: 5rem; /* Increase font size */
+  font-size: 3rem; /* Increase font size */
   padding: 10px 0; /* Adds a nice spacing effect */
   
   background: rgba(70, 70, 70, 0.1); /* Dark semi-transparent background */
@@ -61,16 +62,16 @@ html, body {
 
 .forecastContainer {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: center;
+  flex-direction: row; /* Horizontal layout */
+  gap: 2rem; /* Increased gap between cards */
+  justify-content: center; /* Center the cards horizontally */
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow wrapping to the next line if needed */
   width: 100%;
-  margin-top: 20px;
-  padding-bottom: 3rem;
+  margin-top: 20px; /* Ensure some space above */
+  padding-bottom: 3rem; /* Ensure padding at the bottom to avoid content cut-off */
+  overflow-y: auto; /* Allow vertical scrolling within this container */
 }
-
 
 .card {
   display: flex;
