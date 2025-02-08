@@ -2,16 +2,15 @@ html, body {
     height: 100%;
     margin: 0;
     overflow-y: auto !important;
-    background: url('/your-background-image.jpg') no-repeat center center fixed !important;
+    background: url('/actual-background-image.jpg') no-repeat center center fixed !important;
     background-size: cover !important;
     color: white;
     font-family: Arial, sans-serif;
 }
 
-
 .page-container {
-    min-height: 200vh !important; /* Ensures scrolling */
-    overflow-y: auto !important; 
+    min-height: 200vh !important;
+    overflow-y: auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -22,77 +21,108 @@ html, body {
     margin: 0 auto !important;
 }
 
-/* Fixing opacity issues */
 .mission-top {
     text-align: center !important;
     padding: 50px !important;
-    background-color: #4CAF50 !important; /* Green background */
+    background-color: #4CAF50 !important;
     color: white !important;
     font-size: 1.5rem !important;
     margin-top: 0 !important;
-    opacity: 1 !important; /* Ensure visibility */
+    opacity: 1 !important;
 }
 
 .mission-top h1 {
     font-size: 3rem !important;
     margin-bottom: 20px !important;
-    opacity: 1 !important; /* Ensure visibility */
+    opacity: 1 !important;
 }
 
 .mission-top p {
     font-size: 1.2rem !important;
     line-height: 1.6 !important;
     margin-top: 10px !important;
-    opacity: 1 !important; /* Ensure visibility */
+    opacity: 1 !important;
 }
 
-/* Key areas section */
+.key-areas-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 40px;
+    position: relative;
+}
+
 .key-areas {
+    display: flex !important;
+    gap: 40px !important;
+    padding: 20px 0;
+    width: max-content;
+    animation: scroll 40s linear infinite; /* Slowed down marquee animation */
+}
+
+.area {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 30px !important;
-    margin-top: 40px !important;
-    opacity: 1 !important; /* Ensure it remains visible */
-    padding-top: 100px;
+    background: #1a1a1a !important;
+    padding: 40px !important;
+    border-radius: 20px !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
+    opacity: 1 !important;
+    min-height: 500px;
+    width: 350px;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Individual area boxes */
-.area {
-    display: flex !important;
-    flex-direction: column !important; /* Stacked vertically */
-    align-items: center !important;
-    width: 80% !important;
-    max-width: 1200px !important;
-    background: #1a1a1a !important;
-    padding: 20px !important;
-    border-radius: 10px !important;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important;
-    opacity: 1 !important; /* Ensure visibility */
+.area:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .area-image {
     width: 100% !important;
-    height: auto !important;
-    border-radius: 10px !important;
+    height: 250px !important;
+    border-radius: 15px !important;
+    margin-bottom: 30px !important;
+    object-fit: cover;
+}
+
+.area h3 {
+    font-size: 1.8rem !important;
     margin-bottom: 20px !important;
 }
 
-/* Mobile Responsive */
+.area p {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
+    .key-areas {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
     .area {
         width: 100% !important;
+        min-height: 400px;
+        padding: 30px !important;
     }
+
     .area-image {
         width: 100% !important;
+        height: 200px !important;
     }
-    .area-content {
+
+    .center-video iframe {
         width: 100% !important;
+        height: 300px !important;
     }
 }
 
-.center-video{
-    display:flex;
+.center-video {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -103,4 +133,14 @@ html, body {
     height: 600px !important;
     max-width: 100%;
     height: auto;
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0); /* Start from the left */
+    }
+    100% {
+        transform: translateX(-50%); /* Move to the left */
+    }
 }
