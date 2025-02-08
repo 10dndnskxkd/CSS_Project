@@ -9,7 +9,7 @@ import Footer from "../Components/footer"; // Corrected import path for the Foot
 
 export default function AboutPage() {
   const { scrollYProgress } = useScroll(); // Track scrolling
-  const fadeIn = useTransform(scrollYProgress, [0, 1], [1, 0]); // Fade-out effect
+  const fadeIn = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
   return (
     <WeatherBackground>
@@ -18,7 +18,7 @@ export default function AboutPage() {
         <section className="mission-top">
           <motion.h1 style={{ opacity: fadeIn }}>Our Mission</motion.h1>
           <motion.p style={{ opacity: fadeIn }}>
-            The National Environment Agency (NEA) is the leading public organisation responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
+            The National Environment Agency (NEA) is the leading public organization responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
           </motion.p>
         </section>
 
@@ -32,16 +32,16 @@ export default function AboutPage() {
           </motion.p>
         </header>
 
+        {/* Mission Section */}
+        <section className="mission-section">
+          <motion.h2 style={{ opacity: fadeIn }}>Our Mission</motion.h2>
+          <motion.p style={{ opacity: fadeIn }}>
+            The National Environment Agency (NEA) is the leading public organisation responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
+          </motion.p>
+        </section>
+
         {/* Main Content */}
         <motion.div className="content">
-          {/* Mission Section */}
-          <section className="mission-section">
-            <motion.h2 style={{ opacity: fadeIn }}>Our Mission</motion.h2>
-            <motion.p style={{ opacity: fadeIn }}>
-              The National Environment Agency (NEA) is the leading public organisation responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
-            </motion.p>
-          </section>
-
           {/* Key Areas Section */}
           <div className="key-areas" id="key-areas">
             <KeyAreas /> {/* Use the KeyAreas component here */}
@@ -58,18 +58,19 @@ export default function AboutPage() {
           {/* Video Section */}
           <div className="center-video">
             <div>
-              <h2>Find out more here!</h2>
+              <h1>Find out more here!</h1>
               <iframe
+                title="YouTube video player"
                 src="https://www.youtube.com/embed/Noi3zog1quA"
-                frameBorder="0"
+                className="video-iframe"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
           </div>
-
         </motion.div>
       </motion.div>
+
       <Footer /> 
     </WeatherBackground>
   );

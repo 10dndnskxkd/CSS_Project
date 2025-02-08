@@ -33,4 +33,5 @@
     overflow-y: auto; /* Enable scrolling for the content */
     height: 100vh; /* Full viewport height */
     padding: 20px; /* Add some padding for better spacing */
+    padding-bottom: 0;
 }

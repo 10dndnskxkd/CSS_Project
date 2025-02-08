@@ -113,8 +113,8 @@ export default function TemperatureMapPage() {
             ))}
           </MapContainer>
         )}
+        <Footer /> {/* footer*/}
       </div>
-      <Footer /> {/* footer*/}
     </div>
   );
 }
