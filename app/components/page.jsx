@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import './styles.css'; // Import the CSS file for styling
 
 export default function WeatherBackground({ children }) {
     const [backgroundImage, setBackgroundImage] = useState('');
@@ -66,20 +67,21 @@ export default function WeatherBackground({ children }) {
         <div
             className="background-container"
             style={{
-                height: '100vh',
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                transition: 'background-image 1s ease-in-out', // Smooth transition effect
+                backgroundAttachment: 'fixed', // This keeps the background fixed while scrolling
+                minHeight: '100vh', // Ensure the background covers the full viewport height
             }}
         >
             {/* Dark overlay for better text readability */}
             <div className="background-overlay"></div>
             
             {/* Page content */}
-            <div className="content"></div>
-            {children}
+            <div className="content">
+                {children}
+            </div>
         </div>
     );
 }
