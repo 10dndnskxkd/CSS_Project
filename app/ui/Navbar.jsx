@@ -1,32 +1,44 @@
-"use client"; // 👈 Add this to make it a Client Component
+// Xander and Theresa
+
+"use client"; // Enables client-side rendering for Next.js
 
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // 👈 Use usePathname instead of useRouter
+import { usePathname } from "next/navigation"; // Get the current route pathname
 import { useState } from "react";
 import styles from "./Navbar.module.css";
 import { FaFacebook, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Navbar() {
-  const pathname = usePathname(); // 👈 Get the current path
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname(); // Get the current path to highlight active links
+  const [dropdownOpen, setDropdownOpen] = useState(false); // State to control dropdown visibility
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <div className={styles.navLinks}>
+          {/* Navigation Links */}
           <Link href="/" legacyBehavior>
-            <a className={`${styles.navitem} ${pathname === "/" ? styles.active : ""}`}>Home</a>
+            <a className={`${styles.navitem} ${pathname === "/" ? styles.active : ""}`}>
+              Home
+            </a>
           </Link>
           <Link href="/tempmap" legacyBehavior>
-            <a className={`${styles.navitem} ${pathname === "/tempmap" ? styles.active : ""}`}>Real-Time Temperature Map</a>
+            <a className={`${styles.navitem} ${pathname === "/tempmap" ? styles.active : ""}`}>
+              Real-Time Temperature Map
+            </a>
           </Link>
           <Link href="/forecast" legacyBehavior>
-            <a className={`${styles.navitem} ${pathname === "/forecast" ? styles.active : ""}`}>4-Day Weather Forecast</a>
+            <a className={`${styles.navitem} ${pathname === "/forecast" ? styles.active : ""}`}>
+              4-Day Weather Forecast
+            </a>
           </Link>
           <Link href="/about" legacyBehavior>
-            <a className={`${styles.navitem} ${pathname === "/about" ? styles.active : ""}`}>About Us</a>
+            <a className={`${styles.navitem} ${pathname === "/about" ? styles.active : ""}`}>
+              About Us
+            </a>
           </Link>
-          {/* 👇 Use a standard <a> tag for /e-service to open in a new tab */}
+          
+          {/* External link for E-Service (opens in a new tab) */}
           <a
             href="https://www.eportal.nea.gov.sg"
             target="_blank"
@@ -36,15 +48,16 @@ export default function Navbar() {
             E-Service
           </a>
 
-          {/* ✅ Contact NEA Dropdown */}
+          {/* Contact NEA Dropdown Menu */}
           <div
             className={styles.dropdown}
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+            onMouseEnter={() => setDropdownOpen(true)} // Show dropdown on hover
+            onMouseLeave={() => setDropdownOpen(false)} // Hide dropdown when mouse leaves
           >
             <span className={styles.dropdownToggle}>Find us at ▼</span>
             {dropdownOpen && (
               <ul className={styles.dropdownMenu}>
+                {/* Social Media Links */}
                 <li>
                   <a href="https://www.facebook.com/NEASingapore/" target="_blank" rel="noopener noreferrer">
                     <FaFacebook /> Facebook
