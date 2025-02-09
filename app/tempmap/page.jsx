@@ -81,7 +81,7 @@ export default function TemperatureMapPage() {
   return (
     <div className="page-container">
       <div className="map-container">
-        {/* <DateTimeDisplay /> Render DateTimeDisplay component immediately */}
+        <DateTimeDisplay /> {/* Render DateTimeDisplay component immediately */}
         {errorMessage ? ( //if have error message, display it, else continue 
           <p>{errorMessage}</p>
         ) : (
