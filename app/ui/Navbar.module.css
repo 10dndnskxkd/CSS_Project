@@ -1,17 +1,19 @@
 /* theresa */
 
+/* Navbar container styles */
 .navbar {
-  background: transparent !important; /* ✅ Ensure full transparency */
-  box-shadow: none !important; /* ✅ Remove unwanted shadow */
+  background: transparent !important; /* Ensure full transparency */
+  box-shadow: none !important; /* Remove unwanted shadow */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  position: relative;
+  position: relative; /* Keeps navbar in place */
   padding: 0;
   text-align: center;
 }
 
+/* Navbar wrapper ensuring full width and sticky positioning */
 .navbarContainer {
   display: flex;
   flex-direction: column;
@@ -19,86 +21,122 @@
   justify-content: center;
   width: 100%;
   max-width: 100%;
-  position: sticky; /* Change to sticky */
-  top: 0; /* Adjust top position */
+  position: sticky; /* Keeps navbar fixed at the top */
+  top: 0; /* Positions navbar at the top */
   left: 0;
-  padding: 0; /* Remove padding */
+  padding: 0; /* Removes unnecessary spacing */
   background: transparent !important;
-  min-width: 100%; /* Ensure the navbar maintains its width */
+  min-width: 100%; /* Ensures full width */
 }
 
-/* Navigation Links */
+/* Navigation Links wrapper */
 .navLinks {
   display: flex;
   align-items: center;
-  margin-top: -5px;
+  margin-top: -5px; /* Adjusts vertical positioning */
 }
 
-/* Individual Nav Items */
+/* Individual Navigation Items (Buttons) */
 .navitem {
-  color: black !important;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 15px;
-  padding: 10px 15px;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-  border-radius: 8px; /* Optional: Adds rounded corners */
+  color: rgb(58, 88, 73) !important; /* Sets text color */
+  font-weight: bold; /* Makes text bold */
+  text-decoration: none; /* Removes underline */
+  padding: 10px 15px; /* Adds padding for spacing */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth hover effect */
+  border-radius: 8px; /* Rounded corners */
+  border: 3px solid #ffffff; /* White border */
+  font-size: 1rem; /* Sets font size */
+  outline: none;
+  position: relative;
+  z-index: 1;
+
+  /* Ensuring a dynamic and consistent size */
+  width: 200px; /* Fixed width */
+  max-width: 250px; /* Maximum width */
+  height: 50px; /* Fixed height */
+  display: flex;
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  text-align: center;
+
+  margin: 0 15px; /* Spacing between nav items */
 }
 
-/* Hover Effect */
+/* Hover effect for Navigation Items */
 .navitem:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Darkens slightly */
-  color: black; /* Ensures text remains visible */
+  background-color: rgba(206, 137, 46, 0.1); /* Light orange tint */
+  color: black; /* Changes text color */
+  cursor: pointer; /* Changes cursor to pointer */
+  border-radius: 50px; /* Makes button more rounded on hover */
 }
 
-/* Active Page Indicator */
+/* Inner effect for hover state */
+.navitem::before {
+  transition: 0.5s all ease; /* Smooth transition */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0; /* Initially invisible */
+  content: "";
+  background-color: #8cc6ce; /* Light blue background */
+  border-radius: 50px; /* Keeps the inside effect rounded */
+}
+
+/* Expands the hover effect */
+.navitem:hover::before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1; /* Makes hover effect visible */
+  z-index: -1;
+  border-radius: 50px; /* Ensures round effect */
+}
+
+/* Active page indicator */
 .active {
-  background-color: rgba(0, 0, 0, 0.2); /* Slightly darker to show active state */
-  color: black;
+  background-color: rgba(0, 0, 0, 0.2); /* Darker background */
+  color: black; /* Ensures visibility */
+  border-radius: 50px; /* Keeps active button rounded */
 }
 
-/* Button */
-.navButton {
-  color: black !important;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-/* Map Container */
+/* Map container settings */
 .mapContainer {
-  z-index: 0; /* Ensure it stays below the navbar */
-  position: absolute; /* Isolate it from other content */
+  z-index: 0; /* Keeps it below the navbar */
+  position: absolute; /* Isolates from other content */
   top: 0;
   left: 0;
-  width: 100%; /* Full-width map */
-  height: 100%; /* Full-height map */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
 }
 
-/* ✅ Contact NEA Dropdown Styles */
+/* Dropdown menu container */
 .dropdown {
-  position: relative;
-  cursor: pointer;
+  position: relative; /* Ensures dropdown is positioned relative to parent */
+  cursor: pointer; /* Changes cursor to pointer */
 }
 
+/* Dropdown button */
 .dropdownToggle {
-  font-weight: bold;
+  font-weight: bold; /* Bold text */
   color: black;
   padding: 10px 15px;
 }
 
+/* Dropdown menu styles */
 .dropdownMenu {
   position: absolute;
-  top: 100%;
+  top: 100%; /* Positions menu below the toggle */
   left: 0;
   background: white;
-  border-radius: 5px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px; /* Slightly rounded edges */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
   list-style: none;
   padding: 0;
-  min-width: 180px;
+  min-width: 180px; /* Minimum width */
   z-index: 1000;
-  display: none; /* Default hidden */
+  display: none; /* Hidden by default */
 }
 
 /* Show dropdown on hover */
@@ -106,13 +144,15 @@
   display: block;
 }
 
+/* Dropdown menu list items */
 .dropdownMenu li {
-  padding: 10px 15px;
+  padding: 10px 15px; /* Spacing */
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px; /* Space between text and icons */
 }
 
+/* Dropdown menu links */
 .dropdownMenu li a {
   text-decoration: none;
   color: black;
@@ -120,11 +160,12 @@
   align-items: center;
 }
 
+/* Hover effect for dropdown items */
 .dropdownMenu li:hover {
-  background: #f0f0f0;
+  background: #f0f0f0; /* Light gray background */
 }
 
-/* ✅ Add styles for social media icons */
+/* Social media icons inside dropdown */
 .dropdownMenu li svg {
-  color: #93999f;
+  color: #93999f; /* Light gray color */
 }
