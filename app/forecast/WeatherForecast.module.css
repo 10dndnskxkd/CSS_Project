@@ -1,34 +1,36 @@
+/* Main container styling */
 .container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+  width: 80%; /* Set container width to 80% of the viewport */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Add padding for spacing */
+  text-align: center; /* Center align the text inside the container */
 }
 
+/* Title styling */
 .title {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2rem; /* Set title font size */
+  margin-bottom: 10px; /* Add spacing below the title */
 }
 
+/* Loading and error message styling */
 .loading, .error {
-  font-size: 1.5rem;
-  color: red;
+  font-size: 1.5rem; /* Increase font size for visibility */
+  color: red; /* Set color to red for emphasis */
 }
 
 /* Map container */
 .mapContainer {
   width: 100%;  /* Take full width of the parent container */
   height: 500px;  /* Set fixed height for the map */
-  position: relative;  /* For responsiveness */
-  margin-top: 20px;
+  position: relative;  /* Maintain responsiveness */
+  margin-top: 20px; /* Add spacing above the map */
 }
 
-/* Optional: Add responsiveness */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .mapContainer {
-      height: 400px;  /* Adjust height for smaller screens */
+    height: 400px;  /* Reduce map height for smaller screens */
   }
 }
 
-  
   

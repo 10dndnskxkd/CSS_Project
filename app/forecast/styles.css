@@ -1,16 +1,18 @@
+/* Global styles for the entire page */
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   font-size: 16px; /* Base font size for scaling */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
   color: #333; /* Global text color */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
+/* Main container for the page content */
 .container {
   display: flex;
   flex-direction: column;
@@ -18,34 +20,35 @@ html, body {
   align-items: center;
   width: 100%;
   background-color: #f9f9f9;
-  padding: 2rem; /* Increased padding to make the container bigger */
-  overflow-y: auto; /* Enable scrolling if the content overflows */
-  flex-grow: 1; /* Allow container to grow to take full available height */
+  padding: 2rem; /* Increased padding for better spacing */
+  overflow-y: auto; /* Enables scrolling if content overflows */
+  flex-grow: 1; /* Allows the container to take up available space */
 }
 
+/* Section that fills the screen */
 .full-screen {
   width: 100%;
-  height: auto; /* Allow height to adjust based on content */
+  height: auto; /* Allows height to adjust based on content */
   padding: 0;
   margin: 0;
   border: none;
   border-radius: 0;
-  flex-grow: 1; /* Allows the container to grow */
-  overflow-y: auto; /* Enable scrolling within the full-screen section */
+  flex-grow: 1; /* Ensures it grows to fit available space */
+  overflow-y: auto; /* Enables scrolling inside this section */
 }
 
+/* Heading styles */
 .title {
   text-align: center;
-  text-shadow: 3px 3px 5px rgba(255, 255, 255, 8.0); /* Optional: Adds a shadow effect */
-  color: #ffffff; /* Darker color for the title */
-  margin-bottom: 2rem; /* Increased margin to make space for a larger container */
-  font-weight: bold; /* Make it bold */
-  letter-spacing: 2px; /* Add spacing for readability */
-  font-size: 3rem; /* Increase font size */
-  padding: 10px 0; /* Adds a nice spacing effect */
-  
-  background: rgba(70, 70, 70, 0.1); /* Dark semi-transparent background */
-  
+  font-weight: bold;
+  font-size: 3rem; /* Large font size for emphasis */
+  letter-spacing: 2px; /* Improves readability */
+  color: #ffffff; /* White text */
+  margin-bottom: 2rem; /* Adds spacing below */
+  padding: 10px 0; /* Extra spacing for better layout */
+  background: rgba(70, 70, 70, 0.1); /* Semi-transparent background */
+
+  /* Text shadow for a bold effect */
   text-shadow:
     -2px -2px 0 #000,  
      2px -2px 0 #000,  
@@ -55,92 +58,103 @@ html, body {
      3px  3px 3px rgba(0, 0, 0, 0.8);
 }
 
+/* Styling for error messages */
 .error {
-  color: #e74c3c; /* Red color for error messages */
+  color: #e74c3c; /* Red color to highlight errors */
   text-align: center;
 }
 
+/* Layout for the forecast container */
 .forecastContainer {
   display: flex;
-  flex-direction: row; /* Horizontal layout */
-  gap: 2rem; /* Increased gap between cards */
-  justify-content: center; /* Center the cards horizontally */
+  flex-direction: row; /* Arranges forecast cards horizontally */
+  gap: 2rem; /* Adds space between cards */
+  justify-content: center; /* Centers content */
   align-items: center;
-  flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+  flex-wrap: wrap; /* Allows wrapping for better responsiveness */
   width: 100%;
-  margin-top: 20px; /* Ensure some space above */
-  padding-bottom: 3rem; /* Ensure padding at the bottom to avoid content cut-off */
-  overflow-y: auto; /* Allow vertical scrolling within this container */
+  margin-top: 20px; /* Spacing from the title */
+  padding-bottom: 3rem; /* Prevents content cutoff */
+  overflow-y: auto; /* Allows vertical scrolling */
 }
 
+/* Card styling for forecast items */
 .card {
   display: flex;
-  flex-direction: column; /* Stack content vertically inside the card */
-  align-items: flex-start; /* ✅ Left-align the content */
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the left */
   border: 1px solid #ddd;
-  padding: 1.5rem; /* Increased padding for a larger card */
-  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); /* Scalable shadow */
+  padding: 1.5rem; /* Increased padding for better spacing */
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
   background: rgba(10, 48, 78, 0.85); /* Dark blue with transparency */
-  border-radius: 10px; /* Slightly rounded edges for a modern feel */
-  width: 90%; /* Keeps the card responsive */
-  max-width: 480px; /* Increased max-width for an even larger card */
-  height: auto; /* Allow the height to adjust based on content */
-  min-height: 20rem; /* Increased minimum height for a larger card */
-  overflow: hidden; /* Hide content that overflows */
-  animation: fadeInUp 1.2s ease-out forwards;
+  border-radius: 10px; /* Rounded edges */
+  width: 90%; /* Ensures responsiveness */
+  max-width: 480px; /* Prevents cards from getting too wide */
+  min-height: 20rem; /* Maintains consistent card height */
+  overflow: hidden; /* Prevents overflow issues */
+  animation: fadeInUp 1.2s ease-out forwards; /* Smooth fade-in effect */
 }
 
+/* Card headings */
 .card h2 {
-  color: #ecf0f1; /* Light color for headings inside the card */
+  color: #ecf0f1; /* Light text for contrast */
   margin: 0;
-  font-size: 1.25rem; /* Slightly larger font size for readability */
+  font-size: 1.25rem;
   text-align: center;
 }
 
+/* Card paragraph styles */
 .card p {
-  margin: 0.5rem 0; /* Adjusted margin for more spacing */
-  color: #ffffff; /* Lighter text color for paragraphs */
-  word-wrap: break-word; /* Ensure long words wrap to the next line */
-  text-align: left; /* ✅ Left-align forecast text */
+  margin: 0.5rem 0;
+  color: #ffffff; /* White text for readability */
+  word-wrap: break-word; /* Ensures text wraps correctly */
+  text-align: left; /* Aligns text to the left */
 }
 
+/* Highlight important text inside cards */
 .card strong {
-  color: #f9d71c; /* Yellow color for important text */
+  color: #f9d71c; /* Yellow for emphasis */
 }
 
+/* Weather animation adjustments */
 .weather-animation {
-  max-width: 3rem; /* Slightly bigger animation */
+  max-width: 3rem; /* Scales animation properly */
   height: auto;
-  margin-right: 1rem; /* Increased space between animation and text */
+  margin-right: 1rem; /* Space between animation and text */
 }
 
+/* Container for weather-related content */
 .card-content {
   flex: 1;
-  overflow: hidden; /* Prevent overflow */
-  text-align: left; /* ✅ Left-align all content */
+  overflow: hidden; /* Prevents content overflow */
+  text-align: left; /* Aligns all content to the left */
 }
 
+/* Heading inside weather content */
 .card-content h2 {
   margin: 0;
-  color: #ecf0f1; /* Light color for card content headings */
+  color: #ecf0f1; /* Light color for contrast */
 }
 
+/* Paragraph styling inside weather content */
 .card-content p {
   margin: 0;
-  word-wrap: break-word; /* Ensure wrapping for long content */
-  text-align: left; /* ✅ Left-align the paragraphs */
+  word-wrap: break-word; /* Prevents text from overflowing */
+  text-align: left;
 }
 
+/* Responsive styles for smaller screens */
 @media (max-width: 768px) {
   .forecastContainer {
-    gap: 1.5rem; /* Adjust gap for smaller screens */
+    gap: 1.5rem; /* Reduces gap for better fit */
   }
 
   .weather-animation {
-    max-width: 2.5rem; /* Slightly larger animation for smaller screens */
+    max-width: 2.5rem; /* Adjusts animation size */
   }
 }
 
+/* Animation for card fade-in effect */
 @keyframes fadeInUp {
   from {
     opacity: 0;
