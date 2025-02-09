@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 const KeyAreas = () => {
   const keyAreas = [
@@ -40,25 +41,72 @@ const KeyAreas = () => {
     },
   ];
 
+  const extendedKeyAreas = [...keyAreas, ...keyAreas]; // Duplicate for seamless scroll
+  const scrollContainerRef = useRef(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    const scrollWidth = scrollContainer.scrollWidth / 2; // Get half of the total scroll width
+    const speed = 30; // Adjust speed of scroll animation
+
+    const scrollAnimation = () => {
+      scrollContainer.style.transition = `transform ${speed}s linear`;
+      scrollContainer.style.transform = `translateX(-${scrollWidth}px)`;
+
+      // Reset the scroll position after one full scroll
+      setTimeout(() => {
+        scrollContainer.style.transition = "none"; // Disable transition for reset
+        scrollContainer.style.transform = "translateX(0)";
+        setTimeout(() => {
+          scrollAnimation(); // Restart the scroll animation
+        }, 50); // Small delay before restarting
+      }, speed * 1000); // Delay for the duration of the scroll animation
+    };
+
+    scrollAnimation(); // Start the scroll animation on load
+  }, []);
+
   return (
     <motion.div
-      className="key-areas"
+      className="key-areas-container"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      style={{ overflow: "hidden", position: "relative" }}
     >
-      {keyAreas.map((area, index) => (
-        <div className="area" key={index}>
-          <motion.img
-            src={area.image} // Using different images
-            alt={area.title}
-            className="area-image"
-            whileHover={{ scale: 1.07}}
-          />
-          <h3>{area.title}</h3>
-          <p>{area.description}</p>
-        </div>
-      ))}
+      <motion.div
+        className="key-areas"
+        ref={scrollContainerRef}
+        style={{
+          display: "flex",
+          width: "max-content", // Makes sure the container is wide enough for all items
+        }}
+      >
+        {/* Render all key areas with horizontal scroll */}
+        {extendedKeyAreas.map((area, index) => (
+          <div
+            className="area"
+            key={index}
+            style={{
+              display: "inline-block",
+              padding: "0 10px",
+              minWidth: "250px", // Adjust width of each item
+              textAlign: "center",
+              flexShrink: 0,
+            }}
+          >
+            <motion.img
+              src={area.image} // Using different images
+              alt={area.title}
+              className="area-image"
+              whileHover={{ scale: 1.07 }}
+              style={{ width: "100%", borderRadius: "8px" }}
+            />
+            <h3>{area.title}</h3>
+            <p>{area.description}</p>
+          </div>
+        ))}
+      </motion.div>
     </motion.div>
   );
 };

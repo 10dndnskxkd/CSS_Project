@@ -5,7 +5,7 @@ const EServiceRedirect = () => {
   useEffect(() => {
     // Check if the user is on the '/e-service' page
     if (window.location.pathname === '/e-service') {
-      window.location.href = 'https://www.eportal.nea.gov.sg';
+      window.open('https://www.eportal.nea.gov.sg', '_blank');
     }
   }, []);
 
