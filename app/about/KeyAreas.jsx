@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 // Kieira
 
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-=======
 
 
 import { motion } from "framer-motion"; //Used for the hover scaling
 import { useState, useEffect, useRef } from "react"; // Used for the scroll animation
->>>>>>> a926a97 (Added more comments)
 
 const KeyAreas = () => {
   const keyAreas = [
