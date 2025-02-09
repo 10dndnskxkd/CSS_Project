@@ -1,11 +1,6 @@
-// Kieira
-
+//Kieira
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-
-
-import { motion } from "framer-motion"; //Used for the hover scaling
-import { useState, useEffect, useRef } from "react"; // Used for the scroll animation
 
 const KeyAreas = () => {
   const keyAreas = [
@@ -47,7 +42,7 @@ const KeyAreas = () => {
     },
   ];
 
-  const extendedKeyAreas = [...keyAreas, ...keyAreas]; // Duplicate for looping scroll
+  const extendedKeyAreas = [...keyAreas, ...keyAreas]; // Duplicate for seamless scroll
   const scrollContainerRef = useRef(null);
 
   useEffect(() => {
