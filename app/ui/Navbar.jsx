@@ -1,5 +1,3 @@
-// theresa
-
 "use client"; // 👈 Add this to make it a Client Component
 
 import Link from "next/link";
@@ -28,9 +26,15 @@ export default function Navbar() {
           <Link href="/about" legacyBehavior>
             <a className={`${styles.navitem} ${pathname === "/about" ? styles.active : ""}`}>About Us</a>
           </Link>
-          <Link href="/e-service" legacyBehavior>
-            <a className={`${styles.navitem} ${pathname === "/e-service" ? styles.active : ""}`}>E-Service</a>
-          </Link>
+          {/* 👇 Use a standard <a> tag for /e-service to open in a new tab */}
+          <a
+            href="https://www.eportal.nea.gov.sg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${styles.navitem} ${pathname === "/e-service" ? styles.active : ""}`}
+          >
+            E-Service
+          </a>
 
           {/* ✅ Contact NEA Dropdown */}
           <div

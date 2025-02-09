@@ -1,3 +1,5 @@
+//Kieira
+
 'use client';
 
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -13,6 +15,15 @@ export default function AboutPage() {
 
   return (
     <WeatherBackground>
+        <header className="header">
+          <motion.h1 style={{ opacity: fadeIn }}>
+            National Environment Agency (NEA)
+          </motion.h1>
+          <motion.p style={{ opacity: fadeIn }}>
+            Pioneering Environmental Sustainability in Singapore
+          </motion.p>
+        </header>
+
       <motion.div className="page-container">
         {/* Mission Section at the Top */}
         <section className="mission-top">
@@ -23,22 +34,14 @@ export default function AboutPage() {
         </section>
 
         {/* Header Section */}
-        <header className="header">
-          <motion.h1 style={{ opacity: fadeIn }}>
-            National Environment Agency (NEA)
-          </motion.h1>
-          <motion.p style={{ opacity: fadeIn }}>
-            Pioneering Environmental Sustainability in Singapore
-          </motion.p>
-        </header>
 
         {/* Mission Section */}
-        <section className="mission-section">
+        {/* <section className="mission-section">
           <motion.h2 style={{ opacity: fadeIn }}>Our Mission</motion.h2>
           <motion.p style={{ opacity: fadeIn }}>
             The National Environment Agency (NEA) is the leading public organisation responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
           </motion.p>
-        </section>
+        </section> */}
 
         {/* Main Content */}
         <motion.div className="content">
