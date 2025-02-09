@@ -2,8 +2,8 @@
 
 'use client';
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import "../globals.css"; // Corrected import path for the global stylesheet
+import { motion, useScroll, useTransform } from "framer-motion"; // Handles animantions and scrolling
+import "../globals.css"; // import path for the global stylesheet
 import "./styles.css"; // Import the local stylesheet
 import WeatherBackground from '../Components/page';
 import KeyAreas from "./KeyAreas"; // Import the KeyAreas component
@@ -32,16 +32,6 @@ export default function AboutPage() {
             The National Environment Agency (NEA) is the leading public organization responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
           </motion.p>
         </section>
-
-        {/* Header Section */}
-
-        {/* Mission Section */}
-        {/* <section className="mission-section">
-          <motion.h2 style={{ opacity: fadeIn }}>Our Mission</motion.h2>
-          <motion.p style={{ opacity: fadeIn }}>
-            The National Environment Agency (NEA) is the leading public organisation responsible for ensuring a clean and sustainable environment for Singapore. We aim to improve and sustain a clean environment, promote sustainability and resource efficiency, maintain high public health standards, provide timely and reliable meteorological information, and encourage a vibrant hawker culture.
-          </motion.p>
-        </section> */}
 
         {/* Main Content */}
         <motion.div className="content">
