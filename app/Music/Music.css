@@ -12,23 +12,32 @@
 
 /* Styling for the button (btn-1) */
 .btn-1 {
-    width: 150px; /* Set the width of the button */
-    height: 50px; /* Set the height of the button */
-    border: none; /* Remove default border */
-    color: rgb(233, 233, 233); /* Set text color to a light gray */
-    background-color: rgba(55, 82, 117, 0.479); /* Set a semi-transparent background color */
-    border-radius: 20px; /* Apply rounded corners */
-    box-shadow: inset 0 0 0 0 #3f989e; /* Set initial inner shadow (invisible) */
-    transition: ease-out 0.3s; /* Smooth transition for changes in styles */
-    font-size: 1.2rem; /* Set font size */
-    outline: none; /* Remove the default outline */
-    font-family: "Rubik", sans-serif; /* Set the font family */
-    font-weight: 700; /* Set the font weight to bold */
-}
-
+    width: 150px;
+    height: 50px;
+    border: none;
+    color: rgb(233, 233, 233);
+    background-color: rgba(55, 82, 117, 0.479);
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 0 #3f989e;
+    transition: ease-out 0.3s;
+    font-size: 1.2rem;
+    outline: none;
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    display: flex; /* Apply flexbox */
+    align-items: center; /* Vertically align image and text */
+    justify-content: center; /* Center content horizontally */
+  }
 /* Styling for the hover state of the button */
 .btn-1:hover {
     box-shadow: inset 150px 0 0 0 #2f705a7e; /* Add a glowing effect when hovered */
     cursor: pointer; /* Change cursor to a pointer to indicate it's clickable */
     color: rgb(211, 211, 211); /* Change text color to a lighter gray on hover */
 }
+
+.music-icon {
+    width: 20px; /* Adjust to match the size of other elements */
+    height: px; /* Adjust to match the size of other elements */
+    margin-right: 10px; /* Add spacing between the image and the text */
+  }
+  

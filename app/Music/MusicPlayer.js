@@ -38,10 +38,20 @@ export default function MusicPlayer() {
         Your browser does not support the audio tag.
       </audio>
 
-      {/* ✅ Play/Pause button with conditional text based on play state */}
+      {/* ✅ Play/Pause button with image and text */}
       <button className="btn-1" onClick={togglePlay}>
-        {/* Display "Stop :(" when audio is playing, else show "Play ;)" */}
-        {isPlaying ? "Stop :(" : "Play ;)"}
+        {/* Display an image and text based on the play state */}
+        {isPlaying ? (
+          <>
+            <img src="/rawr.png" alt="Pause" className="music-icon" />
+            <span>Stop :(</span>
+          </>
+        ) : (
+          <>
+            <img src="/rawr.png" alt="Play" className="music-icon" />
+            <span>Play :)</span>
+          </>
+        )}
       </button>
     </div>
   );
