@@ -27,7 +27,7 @@ html, body {
 .mission-top {
     text-align: center !important; /* Center text */
     padding: 50px !important; /* Add padding around the section */
-    background-color: #4CAF50 !important; /* Set background color to green */
+    background-color: #BED73D !important; /* Set background color to green */
     color: white !important; /* Set text color to white */
     font-size: 1.5rem !important; /* Set font size */
     margin-top: 0 !important; /* Remove top margin */
@@ -39,6 +39,7 @@ html, body {
     font-size: 3rem !important; /* Set larger font size for the heading */
     margin-bottom: 20px !important; /* Add margin below the heading */
     opacity: 1 !important; /* Ensure the heading is fully visible */
+
 }
 
 /* Paragraph styling within the mission top section */
@@ -47,6 +48,7 @@ html, body {
     line-height: 1.6 !important; /* Set line height for better readability */
     margin-top: 10px !important; /* Add top margin */
     opacity: 1 !important; /* Ensure the paragraph is fully visible */
+    color: #1a1a1a;
 }
 
 /* Container for the key areas section */
