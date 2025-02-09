@@ -1,4 +1,5 @@
-/* Damian 
+/* Damian and Kieira */
+
 /* Styling for the HTML and body elements */
 html, body {
     height: 100%; /* Ensure full height of the page */
@@ -28,11 +29,12 @@ html, body {
 .mission-top {
     text-align: center !important; /* Center text */
     padding: 50px !important; /* Add padding around the section */
-    background-color: #4CAF50 !important; /* Set background color to green */
+    background-color: #5cd73d !important; /* Set background color to green */
     color: white !important; /* Set text color to white */
     font-size: 1.5rem !important; /* Set font size */
     margin-top: 0 !important; /* Remove top margin */
-    opacity: 1 !important; /* Ensure the section is fully visible */
+    opacity: 0.7 !important; /* Ensure the section is fully visible */
+    border-radius: 20px !important; /* Adjust this value for more/less rounding */
 }
 
 /* Heading styling within the mission top section */
@@ -40,6 +42,7 @@ html, body {
     font-size: 3rem !important; /* Set larger font size for the heading */
     margin-bottom: 20px !important; /* Add margin below the heading */
     opacity: 1 !important; /* Ensure the heading is fully visible */
+
 }
 
 /* Paragraph styling within the mission top section */
@@ -48,6 +51,7 @@ html, body {
     line-height: 1.6 !important; /* Set line height for better readability */
     margin-top: 10px !important; /* Add top margin */
     opacity: 1 !important; /* Ensure the paragraph is fully visible */
+    color: #1a1a1a;
 }
 
 /* Container for the key areas section */
@@ -56,7 +60,6 @@ html, body {
     overflow: hidden; /* Hide overflow content */
     position: relative; /* Allow positioning of child elements */
     margin-top: 40px; /* Add top margin */
-    color: aliceblue;
 }
 
 /* Styling for the list of key areas */
@@ -66,7 +69,7 @@ html, body {
     padding: 20px 0; /* Add padding to top and bottom */
     width: max-content; /* Ensure the width of the container is based on content */
     overflow: hidden; /* Hide overflow content */
-    animation: scroll 40s linear infinite; /* Apply a scrolling animation for the areas */
+    animation: scroll 90s linear infinite; /* Apply a scrolling animation for the areas */
 }
 
 /* Styling for each area within the key areas section */
@@ -74,7 +77,7 @@ html, body {
     display: flex !important; /* Use flexbox for layout */
     flex-direction: column !important; /* Stack items vertically */
     align-items: center !important; /* Center items horizontally */
-    background: #1a1a1a !important; /* Set dark background */
+    background: #15b364a2 !important; /* Set dark background */
     padding: 40px !important; /* Add padding around the area */
     border-radius: 20px !important; /* Round the corners of the area */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3) !important; /* Add subtle shadow */
@@ -82,7 +85,8 @@ html, body {
     min-height: 500px; /* Set a minimum height for each area */
     width: 350px; /* Set a fixed width for each area */
     justify-content: center; /* Center content vertically */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition for hover effects */
+    transition: transform 0.80s ease-out, box-shadow 0.15s ease-out;; /* Add smooth transition for hover effects */
+    
 }
 
 /* Hover effect for areas */
@@ -103,12 +107,12 @@ html, body {
 /* Styling for the heading within each area */
 .area h3 {
     font-size: 1.8rem !important; /* Set font size for the heading */
-    margin-bottom: 20px !important; /* Add space below the heading */
+    margin-bottom: 30px !important; /* Add space below the heading */
 }
 
 /* Styling for the paragraph within each area */
 .area p {
-    font-size: 1.1rem !important; /* Set font size for the paragraph */
+    font-size: 1.3rem !important; /* Set font size for the paragraph */
     line-height: 1.6 !important; /* Set line height for readability */
     text-align: center; /* Center align the paragraph text */
 }
