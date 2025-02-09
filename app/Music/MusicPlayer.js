@@ -43,7 +43,7 @@ export default function MusicPlayer() {
         {/* Display an image and text based on the play state */}
         {isPlaying ? (
           <>
-            <img src="/rawr.png" alt="Pause" className="music-icon" />
+            <img src="/Water_guy.png" alt="Pause" className="music-icon" />
             <span>Stop :(</span>
           </>
         ) : (
