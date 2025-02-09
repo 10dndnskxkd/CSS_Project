@@ -1,6 +1,6 @@
 /* Damian 
 /* Styling for the HTML and body elements */
-html, body {
+html, body { 
     height: 100%; /* Ensure full height of the page */
     margin: 0; /* Remove default margin */
     overflow-y: auto !important; /* Allow vertical scrolling */
@@ -8,7 +8,7 @@ html, body {
     background-size: cover !important; /* Make sure the background image covers the entire screen */
     color: white; /* Set text color to white */
     font-family: Arial, sans-serif; /* Set font to Arial */
-}
+} /*For the background image */
 
 /* Container for the entire page content */
 .page-container {
@@ -59,7 +59,7 @@ html, body {
     color: aliceblue;
 }
 
-/* Styling for the list of key areas */
+/* Styling for the list of key areas, scrolls over 40 seconds*/ 
 .key-areas {
     display: flex !important; /* Use flexbox for horizontal layout */
     gap: 40px !important; /* Add space between items */
